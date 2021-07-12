@@ -3,21 +3,13 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 
-                <div class="mt-8 text-2xl">
-                    Thông tin tài khoản API KEY và SECRET KEY
-                </div>
-
                 <div class="mt-6 text-gray-500">
-                    SECRET KEY và API KEY bạn không được tiết lộ cho bất cứ ai. Đặc biệt là SECRET KEY.
-                </div>
-
-                <div class="mt-6 text-gray-500">
-{{--                    <a href="{{route('account.create')}}">--}}
-{{--                        <button type="submit"--}}
-{{--                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">--}}
-{{--                            Khởi tạo account--}}
-{{--                        </button>--}}
-{{--                    </a>--}}
+                    <a href="{{route('admin.category.create')}}">
+                        <button type="submit"
+                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                            Create category
+                        </button>
+                    </a>
                 </div>
             </div>
 
