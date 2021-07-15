@@ -27,7 +27,7 @@
                                 class="ml-4 text-lg text-gray-600 leading-7 font-semibold flex justify-between w-full">
                                 <div>{{ $category->name }}</div>
                                 <div>
-                                    <a href="{{route('account.edit', ['account' => $category->id])}}">
+                                    <a href="{{route('admin.category.edit', ['category' => $category->id])}}">
                                         <button type="submit"
                                                 class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                                             Sửa account
@@ -38,47 +38,16 @@
                         </div>
 
                         <div class="ml-12">
-                            <div class="mt-2">
-                                <div class="break-all font-bold">
-                                    <span class="text-gray-500">CODE: </span><span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer text-white bg-black"
-                                        id="{{ $category->id . '_' . $category->code }}"
-                                        onclick="copyToClipboard('{{ $category->id . '_' . $category->code }}')">{{ $category->code }}</span>
-                                </div>
-                                <div class="text-gray-500 break-all">
-                                    <span class="font-bold">Loại chạy: </span>{{ \App\Models\Account::TYPE_NAME[$category->type] ?? 'ERROR' }}
-                                </div>
-                                <div class="text-gray-500 break-all">
-                                    <span class="font-bold">API KEY: </span>{{ $category->api_key }}
-                                </div>
-                                <div class="text-gray-500">
-                                    <span class="font-bold">Status: </span><span
-                                        wire:click.debounce.250ms="updateStatus('{{$category->id}}')"
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer {{ \App\Models\Account::STATUS_CLASS[$category->status] ?? '' }}">
-                                                    {{ \App\Models\Account::STATUS_NAME[$category->status] ?? '' }}
-                                                </span>
-                                </div>
-                                @if($category->last_error)
-                                    <div class="text-gray-500 break-all">
-                                        <span class="font-bold">Last error: </span>{{ $category->last_error }}
-                                    </div>
-                                @endif
-                                @if($category->options)
-                                    <div class="text-gray-500 break-all">
-                                        <span class="font-bold">Options: </span>{{ $category->options }}
-                                    </div>
-                                @endif
-                            </div>
                             <div class="grid grid-cols-3 gap-4">
                                 <span class="cursor-pointer"
-                                      wire:click.prevent="modalDelete('{{$category->code}}', '{{route('account.destroy', ['account' => $category->id])}}')">
+                                      wire:click.prevent="modalDelete('{{$category->name}}', '{{route('admin.category.destroy', ['category' => $category->id])}}')">
                                     <div class="mt-3 flex items-center text-sm font-semibold text-red-700">
-                                        Xóa tài khoản
+                                        Delete category
                                     </div>
                                 </span>
                                 <a href="">
                                     <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
-                                        <div>Lịch sử giao dịch</div>
+                                        <div>List product</div>
 
                                         <div class="ml-1 text-indigo-500">
                                             <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">

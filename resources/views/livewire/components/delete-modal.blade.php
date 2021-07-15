@@ -1,6 +1,6 @@
 <x-jet-dialog-modal wire:model="is_modal">
     <x-slot name="title">
-        {{ __('Bạn có chắc chắn muốn xóa!') }}
+        {{ __('Do you want delete?') }}
     </x-slot>
 
     <x-slot name="content">
