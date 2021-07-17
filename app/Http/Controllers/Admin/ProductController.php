@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,6 +17,8 @@ class ProductController extends Controller
 
     public function create()
     {
+        $category_count = Category::count();
+        if (!$category_count) return redirect()->route('admin.category.index');
         return view('admin.product.store');
     }
 
@@ -23,16 +26,22 @@ class ProductController extends Controller
     {
         $id = $request->id;
         if ($id) {
-            $category = Category::findorfail($id);
-            $category->update([
+            $product = Product::findorfail($id);
+            $product->update([
                 'name' => $request->name,
                 'banner' => $request->banner,
-                'code' => $category->code
+                'position' => (int)$request->position,
+                'status' => $request->status,
+                'category_id' => $request->category_id,
+                'code' => $product->code
             ]);
         } else {
-            Category::create([
+            Product::create([
                 'name' => $request->name,
-                'banner' => $request->banner
+                'banner' => $request->banner,
+                'position' => (int)$request->position,
+                'status' => $request->status,
+                'category_id' => $request->category_id
             ]);
         }
 

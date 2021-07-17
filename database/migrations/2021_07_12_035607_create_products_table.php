@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('position')->default(0);
             $table->string('status')->default('open');
-            $table->string('picture')->nullable();
+            $table->string('banner')->nullable();
             $table->timestamps();
         });
     }

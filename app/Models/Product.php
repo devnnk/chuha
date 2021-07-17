@@ -15,14 +15,14 @@ class Product extends Authenticatable
         'category_id',
         'position',
         'status',
-        'picture'
+        'banner'
     ];
 
-    private static function codeStory($name)
+    private static function codeProduct($name)
     {
         $code = Str::lower(Str::slug($name));
-        $category = Category::wherecode($code)->first();
-        return $category ? self::codeStory(strtolower(Str::slug($code) . "-" . Str::random(4))) : $code;
+        $product = Product::wherecode($code)->first();
+        return $product ? self::codeStory(strtolower(Str::slug($code) . "-" . Str::random(4))) : $code;
     }
 
     protected static function boot()
@@ -30,7 +30,7 @@ class Product extends Authenticatable
         parent::boot();
 
         static::saving(function ($query) {
-            $query->code = self::codeStory($query->name);
+            $query->code = self::codeProduct($query->name);
         });
 
         // auto-sets values on creation

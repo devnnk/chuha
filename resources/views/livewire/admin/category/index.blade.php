@@ -30,7 +30,7 @@
                                     <a href="{{route('admin.category.edit', ['category' => $category->id])}}">
                                         <button type="submit"
                                                 class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                                            Sửa account
+                                            Edit category
                                         </button>
                                     </a>
                                 </div>
@@ -38,7 +38,16 @@
                         </div>
 
                         <div class="ml-12">
-                            <div class="grid grid-cols-3 gap-4">
+                            <div class="my-4">
+                                <img src="{{ $category->banner }}">
+                            </div>
+                            <div class="text-gray-500">
+                                <span class="font-bold">Status: </span><span
+                                    wire:click.debounce.250ms="updateStatus('{{$category->id}}')"
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer uppercase">{{ $category->status }}</span>
+                            </div>
+
+                            <div class="flex items-center justify-between">
                                 <span class="cursor-pointer"
                                       wire:click.prevent="modalDelete('{{$category->name}}', '{{route('admin.category.destroy', ['category' => $category->id])}}')">
                                     <div class="mt-3 flex items-center text-sm font-semibold text-red-700">

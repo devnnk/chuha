@@ -37,6 +37,21 @@
                                      :value="$category && isset($category->banner) ? $category->banner : old('banner')"
                                      required autofocus/>
                     </div>
+                    <div class="mt-4">
+                        <x-jet-label for="position" value="{{ __('Position') }}"/>
+                        <x-jet-input id="position" class="block mt-1 w-full" type="number" name="position"
+                                     :value="$category && isset($category->position) ? $product->position : 1000"
+                                     required/>
+                    </div>
+
+                    <div class="mt-4">
+                        <x-jet-label for="status" value="{{ __('Status') }}"/>
+                        <select name="status" id="status"
+                                class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                            <option value="open">OPEN</option>
+                            <option value="close">CLOSE</option>
+                        </select>
+                    </div>
 
                     <div class="flex items-center justify-center mt-4">
                         <x-jet-button class="ml-4">

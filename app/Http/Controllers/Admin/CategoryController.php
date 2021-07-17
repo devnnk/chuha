@@ -27,12 +27,16 @@ class CategoryController extends Controller
             $category->update([
                 'name' => $request->name,
                 'banner' => $request->banner,
+                'position' => (int)$request->position,
+                'status' => $request->status,
                 'code' => $category->code
             ]);
         } else {
             Category::create([
                 'name' => $request->name,
-                'banner' => $request->banner
+                'banner' => $request->banner,
+                'position' => (int)$request->position,
+                'status' => $request->status,
             ]);
         }
 
