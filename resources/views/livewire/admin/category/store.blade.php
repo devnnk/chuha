@@ -30,6 +30,13 @@
                                      :value="$category && isset($category->name) ? $category->name : old('name')"
                                      required autofocus/>
                     </div>
+                    <div class="mt-4">
+                        <x-jet-label for="banner" value="{{ __('Banner (Upload image to imgur)') }}"/>
+                        <x-jet-input id="banner" class="block mt-1 w-full" type="text" name="banner"
+                                     wire:model.debounce.250ms="banner"
+                                     :value="$category && isset($category->banner) ? $category->banner : old('banner')"
+                                     required autofocus/>
+                    </div>
 
                     <div class="flex items-center justify-center mt-4">
                         <x-jet-button class="ml-4">

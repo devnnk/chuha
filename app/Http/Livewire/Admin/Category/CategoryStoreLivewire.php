@@ -8,6 +8,7 @@ use Livewire\Component;
 class CategoryStoreLivewire extends Component
 {
     public $category = '';
+    public $banner = '';
     public $name = '';
 
     public function mount($id)
@@ -17,6 +18,7 @@ class CategoryStoreLivewire extends Component
             if (!$this->category) abort(404);
 
             $this->name = $this->category->name;
+            $this->banner = $this->category->banner;
         }
     }
 

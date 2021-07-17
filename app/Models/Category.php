@@ -11,7 +11,8 @@ class Category extends Authenticatable
 
     protected $fillable = [
         'name',
-        'name_unicode'
+        'code',
+        'banner'
     ];
 
     private static function codeStory($name)

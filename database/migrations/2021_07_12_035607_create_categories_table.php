@@ -13,6 +13,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('code', 199)->index();
             $table->integer('position')->default(0);
+            $table->string('banner')->nullable();
             $table->string('status')->default('open');
             $table->timestamps();
         });

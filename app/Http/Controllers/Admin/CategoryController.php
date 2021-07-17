@@ -26,11 +26,13 @@ class CategoryController extends Controller
             $category = Category::findorfail($id);
             $category->update([
                 'name' => $request->name,
+                'banner' => $request->banner,
                 'code' => $category->code
             ]);
         } else {
             Category::create([
-                'name' => $request->name
+                'name' => $request->name,
+                'banner' => $request->banner
             ]);
         }
 
