@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware(['auth:sanctum', 'verified'])->resource('category', CategoryController::class)->except('update');
+    Route::middleware(['auth:sanctum', 'verified'])->resource('product', CategoryController::class)->except('update');
 });
 
 

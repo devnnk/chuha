@@ -5,5 +5,5 @@
         </h2>
     </x-slot>
 
-    <livewire:admin-product-store :_id="$id ?? ''"/>
+    <livewire:admin-category-store :_id="$id ?? ''"/>
 </x-app-layout>
