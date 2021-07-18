@@ -13,55 +13,87 @@
                 </div>
             </div>
 
-            <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
-                @foreach($products as $product)
-                    <div class="p-6 border-t border-gray-200 md:border-l md:border-t-0 md:border-l md:border-b">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                 stroke-width="2"
-                                 viewBox="0 0 24 24" class="w-8 h-8 text-gray-400">
-                                <path
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                            </svg>
-                            <div
-                                class="ml-4 text-lg text-gray-600 leading-7 font-semibold flex justify-between w-full">
-                                <div>{{ $product->name }}</div>
-                                <div>
-                                    <a href="{{route('admin.category.edit', ['category' => $product->id])}}">
-                                        <button type="submit"
-                                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                                            Sửa account
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="ml-12">
-                            <div class="grid grid-cols-3 gap-4">
-                                <span class="cursor-pointer"
-                                      wire:click.prevent="modalDelete('{{$product->name}}', '{{route('admin.category.destroy', ['category' => $product->id])}}')">
-                                    <div class="mt-3 flex items-center text-sm font-semibold text-red-700">
-                                        Delete category
-                                    </div>
-                                </span>
-                                <a href="">
-                                    <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
-                                        <div>List product</div>
-
-                                        <div class="ml-1 text-indigo-500">
-                                            <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                                                <path fill-rule="evenodd"
-                                                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                      clip-rule="evenodd"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </a>
+            <div class="bg-gray-200 bg-opacity-25">
+                <div class="flex flex-col">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            ID
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Name
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Category
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Banner
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                            Position
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                            Status
+                                        </th>
+                                        <th scope="col" class="relative px-6 py-3 text-right">
+                                            ###
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                    @foreach($products as $product)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                                                {{ $product->id }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                                                {{ $product->name }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                {{ $product->category->name }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <img src="{{ $product->banner }}" style="width: 70px; height: 70px; object-fit: cover">
+                                            </td>
+                                            <td class="text-center">
+                                                {{ $product->position }}
+                                            </td>
+                                            <td class="text-center">
+                                                <span wire:click.debounce.250ms="updateStatus('{{$product->id}}')"
+                                                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer">
+                                                    {{ $product->status }}
+                                                </span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="{{ route('admin.product.show', ['product' => $product->id]) }}"
+                                                   class="text-purple-700 hover:text-purple-900">Lịch sử</a>
+                                                <a href="{{ route('admin.product.edit', ['product' => $product->id]) }}"
+                                                   class="text-indigo-600 hover:text-indigo-900">Sửa</a>
+                                                <span class="text-red-600 hover:text-red-900 cursor-pointer"
+                                                      wire:click.prevent="modalDelete('{{$product->account_code .' - ' . $product->symbol}}', '{{route('admin.product.destroy', ['product' => $product->id])}}')">Xóa</span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    <!-- More people... -->
+                                    </tbody>
+                                </table>
+{{--                                <div class="p-6 ">--}}
+{{--                                    {{ $products->links() }}--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
     </div>

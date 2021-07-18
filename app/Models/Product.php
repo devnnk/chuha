@@ -15,7 +15,8 @@ class Product extends Authenticatable
         'category_id',
         'position',
         'status',
-        'banner'
+        'banner',
+        'desc'
     ];
 
     private static function codeProduct($name)
@@ -41,4 +42,8 @@ class Product extends Authenticatable
 //        });
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

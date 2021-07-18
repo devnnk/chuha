@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->integer('position')->default(0);
             $table->string('status')->default('open');
             $table->string('banner')->nullable();
+            $table->text('desc')->nullable();
             $table->timestamps();
         });
     }

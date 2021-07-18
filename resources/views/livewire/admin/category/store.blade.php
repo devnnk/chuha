@@ -40,7 +40,7 @@
                     <div class="mt-4">
                         <x-jet-label for="position" value="{{ __('Position') }}"/>
                         <x-jet-input id="position" class="block mt-1 w-full" type="number" name="position"
-                                     :value="$category && isset($category->position) ? $product->position : 1000"
+                                     :value="$category && isset($category->position) ? $category->position : 1000"
                                      required/>
                     </div>
 

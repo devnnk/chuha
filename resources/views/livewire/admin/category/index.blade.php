@@ -38,8 +38,9 @@
                         </div>
 
                         <div class="ml-12">
-                            <div class="my-4">
-                                <img src="{{ $category->banner }}">
+                            <div class="my-4 mt-2">
+                                <img src="{{ $category->banner }}"
+                                     style="max-height: 130px;min-height: 130px;object-fit: cover;width: 100%;">
                             </div>
                             <div class="text-gray-500">
                                 <span class="font-bold">Status: </span><span
