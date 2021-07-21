@@ -16,15 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.category.index') }}"
-                                    :active="request()->routeIs(['admin.category.index', 'admin.category.edit'])">
+                                    :active="request()->routeIs(['admin.category.index', 'admin.category.create', 'admin.category.edit'])">
                         {{ __('Category') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.product.index') }}"
-                                    :active="request()->routeIs(['admin.product.index', 'admin.product.edit'])">
+                                    :active="request()->routeIs(['admin.product.index', 'admin.product.create', 'admin.product.edit'])">
                         {{ __('Product') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin.item.index') }}"
-                                    :active="request()->routeIs(['admin.item.index', 'admin.item.edit'])">
+                                    :active="request()->routeIs(['admin.item.index', 'admin.item.create', 'admin.item.edit'])">
                         {{ __('Item') }}
                     </x-jet-nav-link>
                 </div>

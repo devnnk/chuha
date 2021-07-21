@@ -17,9 +17,9 @@ class ItemController extends Controller
 
     public function create()
     {
-        $category_count = Category::count();
-        if (!$category_count) return redirect()->route('admin.item.index');
-        return view('admin.product.store');
+        $product_count = Product::count();
+        if (!$product_count) return redirect()->route('admin.item.index');
+        return view('admin.item.store');
     }
 
     public function store(Request $request)
