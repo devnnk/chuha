@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use App\Http\Livewire\Admin\Category\{CategoryLivewire, CategoryStoreLivewire};
+use App\Http\Livewire\Admin\Item\{ItemLivewire, ItemStoreLivewire};
 use App\Http\Livewire\Admin\Product\{ProductLivewire, ProductStoreLivewire};
 use App\Http\Livewire\Components\DeleteModal;
 use App\Http\Livewire\Components\HeaderV2;
@@ -29,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
             'admin-category-store' => CategoryStoreLivewire::class,
             'admin-product' => ProductLivewire::class,
             'admin-product-store' => ProductStoreLivewire::class,
+            'admin-item' => ItemLivewire::class,
+            'admin-item-store' => ItemStoreLivewire::class,
 
             'delete-modal' => DeleteModal::class,
             'header-v2' => HeaderV2::class

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\V2\HomeLivewire;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\Admin\{CategoryController, ProductController};
+use App\Http\Controllers\Admin\{CategoryController, ProductController, ItemController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware(['auth:sanctum', 'verified'])->resource('category', CategoryController::class)->except('update');
     Route::middleware(['auth:sanctum', 'verified'])->resource('product', ProductController::class)->except('update');
+    Route::middleware(['auth:sanctum', 'verified'])->resource('item', ItemController::class)->except('update');
 });
 
 

@@ -4,10 +4,10 @@
             <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 
                 <div class="mt-6 text-gray-500">
-                    <a href="{{route('admin.product.create')}}">
+                    <a href="{{route('admin.item.create')}}">
                         <button type="submit"
                                 class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                            Create product
+                            Create item
                         </button>
                     </a>
                 </div>
@@ -18,7 +18,7 @@
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200 text-center">
+                                <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
                                     <tr>
                                         <th scope="col"
@@ -28,10 +28,6 @@
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Name
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Header SKU
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -55,7 +51,7 @@
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($products as $product)
+                                    @foreach($items as $product)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
                                                 {{ $product->id }}
@@ -63,10 +59,7 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
                                                 {{ $product->name }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                                {{ $product->sku }}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $product->category->name }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
@@ -94,9 +87,9 @@
                                     <!-- More people... -->
                                     </tbody>
                                 </table>
-{{--                                <div class="p-6 ">--}}
-{{--                                    {{ $products->links() }}--}}
-{{--                                </div>--}}
+                                <div class="p-6 ">
+                                    {{ $items->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

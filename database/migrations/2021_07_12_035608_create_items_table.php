@@ -11,7 +11,19 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('name_unicode', 199)->index();
+            $table->string('code', 199)->index();
+            $table->string('sku')->index();
+            $table->bigInteger('amount')->default(0);
+            $table->bigInteger('price')->default(0);
+            $table->string('title');
+            $table->text('content');
+            $table->text('info')->nullable();
+            $table->text('recommendation')->nullable();
+            $table->text('images')->nullable();
+            $table->text('desc')->nullable();
+
+
+
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();

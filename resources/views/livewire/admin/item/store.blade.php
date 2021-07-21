@@ -3,14 +3,14 @@
         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 
             <div class="mt-8 text-2xl">
-                Create product
+                Create Item
             </div>
 
             <div class="mt-6 text-gray-500">
-                <a href="{{route('admin.product.index')}}">
+                <a href="{{route('admin.item.index')}}">
                     <button type="submit"
                             class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                        Product
+                        Item
                     </button>
                 </a>
             </div>
@@ -38,12 +38,6 @@
                         <x-jet-label for="position" value="{{ __('Position') }}"/>
                         <x-jet-input id="position" class="block mt-1 w-full" type="number" name="position"
                                      :value="$product && isset($product->position) ? $product->position : 1000"
-                                     required/>
-                    </div>
-                    <div class="mt-4">
-                        <x-jet-label for="sku" value="{{ __('Code SKU') }}"/>
-                        <x-jet-input id="sku" class="block mt-1 w-full" type="text" name="sku"
-                                     :value="$product && isset($product->sku) ? $product->sku : ''"
                                      required/>
                     </div>
                     <div class="mt-4">

@@ -12,6 +12,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('code', 199)->index();
+            $table->string('sku', 199)->index();
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('position')->default(0);

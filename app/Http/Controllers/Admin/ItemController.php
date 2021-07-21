@@ -7,18 +7,18 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ItemController extends Controller
 {
     //
     public function index()
     {
-        return view('admin.product.index');
+        return view('admin.item.index');
     }
 
     public function create()
     {
         $category_count = Category::count();
-        if (!$category_count) return redirect()->route('admin.category.index');
+        if (!$category_count) return redirect()->route('admin.item.index');
         return view('admin.product.store');
     }
 
@@ -33,7 +33,6 @@ class ProductController extends Controller
                 'position' => (int)$request->position,
                 'status' => $request->status,
                 'category_id' => $request->category_id,
-                'sku' => $request->sku,
                 'code' => $product->code
             ]);
         } else {
@@ -42,8 +41,7 @@ class ProductController extends Controller
                 'banner' => $request->banner,
                 'position' => (int)$request->position,
                 'status' => $request->status,
-                'category_id' => $request->category_id,
-                'sku' => $request->sku
+                'category_id' => $request->category_id
             ]);
         }
 
@@ -52,7 +50,7 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        return view('admin.product.store', compact('id'));
+        return view('admin.item.store', compact('id'));
     }
 
     public function destroy($id)
