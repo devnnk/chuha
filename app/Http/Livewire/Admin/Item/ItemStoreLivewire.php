@@ -23,7 +23,7 @@ class ItemStoreLivewire extends Component
 
     public function render()
     {
-        $categories = Category::all();
+        $products = Product::all();
         return view('livewire.admin.item.store', [
             'product' => $this->product,
             'categories' => $categories
