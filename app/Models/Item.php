@@ -13,15 +13,14 @@ class Item extends Authenticatable
         'name',
         'code',
         'sku',
-        'amount',
-        'price',
         'title',
         'content',
         'info',
         'recommendation',
         'images',
         'desc',
-        'product_id'
+        'product_id',
+        'status'
     ];
 
     private static function codeProduct($name)

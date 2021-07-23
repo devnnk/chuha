@@ -13,8 +13,6 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->string('code', 199)->index();
             $table->string('sku')->index();
-            $table->bigInteger('amount')->default(0);
-            $table->bigInteger('price')->default(0);
             $table->string('title');
             $table->text('content');
             $table->text('info')->nullable();
@@ -24,6 +22,7 @@ class CreateItemsTable extends Migration
 
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->string('status')->default('open');
             $table->timestamps();
         });
     }

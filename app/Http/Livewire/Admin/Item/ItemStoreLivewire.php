@@ -3,21 +3,22 @@
 namespace App\Http\Livewire\Admin\Item;
 
 use App\Models\Category;
+use App\Models\Item;
 use App\Models\Product;
 use Livewire\Component;
 
 class ItemStoreLivewire extends Component
 {
-    public $product = '';
+    public $item = '';
     public $name = '';
 
     public function mount($id)
     {
         if (isset($id) && $id) {
-            $this->product = Product::find($id);
-            if (!$this->product) abort(404);
+            $this->item = Item::find($id);
+            if (!$this->item) abort(404);
 
-            $this->name = $this->product->name;
+            $this->name = $this->item->name;
         }
     }
 
@@ -25,8 +26,8 @@ class ItemStoreLivewire extends Component
     {
         $products = Product::all();
         return view('livewire.admin.item.store', [
-            'product' => $this->product,
-            'categories' => $categories
+            'item' => $this->item,
+            'products' => $products
         ]);
     }
 }
