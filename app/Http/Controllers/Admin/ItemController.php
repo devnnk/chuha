@@ -24,27 +24,22 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        $id = $request->id;
-        if ($id) {
-            $product = Product::findorfail($id);
-            $product->update([
-                'name' => $request->name,
-                'banner' => $request->banner,
-                'position' => (int)$request->position,
-                'status' => $request->status,
-                'category_id' => $request->category_id,
-                'code' => $product->code
-            ]);
-        } else {
-            Product::create([
-                'name' => $request->name,
-                'banner' => $request->banner,
-                'position' => (int)$request->position,
-                'status' => $request->status,
-                'category_id' => $request->category_id
-            ]);
+        $data = $request->only('name', 'sku', 'title', 'content', 'info', 'recommendation', 'images', 'product_id', 'status');
+        $data_price = $request->only('pick_number_set_price', 'type', 'price', 'amount');
+
+        $pick_number_set_price = (int)$data_price['pick_number_set_price'];
+
+        $data_price_final = [];
+        foreach ($data_price['type'] as $key => $type) {
+            if ($key >= $pick_number_set_price) break;
+            $data_price_final[] = [
+                'type' => $type,
+                'price' => $data_price['price'],
+                'amount' => $data_price['amount'],
+            ];
         }
 
+dd($data, $data_price);
         return back()->with('notify', ['message' => isset($data['id']) && $data['id'] ? 'Update success.' : 'Create success!', 'type' => 'success']);
     }
 
