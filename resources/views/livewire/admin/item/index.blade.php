@@ -31,15 +31,15 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Category
+                                            SKU
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Banner
+                                            Title
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                            Position
+                                            Content
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
@@ -51,36 +51,36 @@
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($items as $product)
+                                    @foreach($items as $item)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                                {{ $product->id }}
+                                                {{ $item->id }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                                {{ $product->name }}
+                                                {{ $item->name }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                                {{ $product->category->name }}
+                                                {{ $item->product->name }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                <img src="{{ $product->banner }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                <img src="{{ $item->banner }}" style="width: 70px; height: 70px; object-fit: cover">
                                             </td>
                                             <td class="text-center">
-                                                {{ $product->position }}
+                                                {{ $item->position }}
                                             </td>
                                             <td class="text-center">
-                                                <span wire:click.debounce.250ms="updateStatus('{{$product->id}}')"
+                                                <span wire:click.debounce.250ms="updateStatus('{{$item->id}}')"
                                                       class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer">
-                                                    {{ $product->status }}
+                                                    {{$item->status}}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('admin.product.show', ['product' => $product->id]) }}"
+                                                <a href="{{ route('admin.product.show', ['product' => $item->id]) }}"
                                                    class="text-purple-700 hover:text-purple-900">Lịch sử</a>
-                                                <a href="{{ route('admin.product.edit', ['product' => $product->id]) }}"
+                                                <a href="{{ route('admin.product.edit', ['product' => $item->id]) }}"
                                                    class="text-indigo-600 hover:text-indigo-900">Sửa</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$product->account_code .' - ' . $product->symbol}}', '{{route('admin.product.destroy', ['product' => $product->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$item->account_code .' - ' . $item->symbol}}', '{{route('admin.product.destroy', ['product' => $item->id])}}')">Xóa</span>
                                             </td>
                                         </tr>
                                     @endforeach

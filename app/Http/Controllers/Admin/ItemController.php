@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Item;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,7 @@ class ItemController extends Controller
         $pick_number_set_price = (int)$data_price['pick_number_set_price'];
 
         $data_price_final = [];
+
         foreach ($data_price['type'] as $key => $type) {
             if ($key >= $pick_number_set_price) break;
             $data_price_final[] = [
@@ -39,7 +41,7 @@ class ItemController extends Controller
             ];
         }
 
-dd($data, $data_price);
+        Item::create($data);
         return back()->with('notify', ['message' => isset($data['id']) && $data['id'] ? 'Update success.' : 'Create success!', 'type' => 'success']);
     }
 

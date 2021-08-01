@@ -50,4 +50,9 @@ class Item extends Authenticatable
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    public function prices()
+    {
+        return $this->hasMany(Price::class, 'item_id', 'id');
+    }
 }
