@@ -13,6 +13,7 @@ class Category extends Authenticatable
         'name',
         'code',
         'banner',
+        'position_menu',
         'position',
         'status'
     ];
