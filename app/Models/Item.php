@@ -10,7 +10,6 @@ class Item extends Authenticatable
     protected $table = 'items';
 
     protected $fillable = [
-        'name',
         'code',
         'sku',
         'title',
@@ -23,11 +22,11 @@ class Item extends Authenticatable
         'status'
     ];
 
-    private static function codeProduct($name)
+    private static function codeItem($name)
     {
         $code = Str::lower(Str::slug($name));
         $product = Item::wherecode($code)->first();
-        return $product ? self::codeStory(strtolower(Str::slug($code) . "-" . Str::random(4))) : $code;
+        return $product ? self::codeItem(strtolower(Str::slug($code) . "-" . Str::random(4))) : $code;
     }
 
     protected static function boot()
@@ -35,7 +34,7 @@ class Item extends Authenticatable
         parent::boot();
 
         static::saving(function ($query) {
-            $query->code = self::codeProduct($query->name);
+            $query->code = self::codeItem($query->title);
         });
 
         // auto-sets values on creation
@@ -53,6 +52,6 @@ class Item extends Authenticatable
 
     public function prices()
     {
-        return $this->hasMany(Price::class, 'item_id', 'id');
+        return $this->hasMany(Price::class, 'id', 'item_id');
     }
 }

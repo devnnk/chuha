@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Price extends Authenticatable
 {
-    protected $table = 'items';
+    protected $table = 'prices';
 
     protected $fillable = [
         'type',

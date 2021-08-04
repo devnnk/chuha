@@ -45,7 +45,7 @@
                 </div>
                 <div class="flex justify-between">
                     <div class="flex justify-start items-center text-featured">
-                        <span class="leading-none block text-sm font-medium">{{ isset($item->prices) ? $item->prices : '' }}</span>
+                        <span class="leading-none block text-sm font-medium">{{ $item->prices->count() ? $item->prices : '' }}</span>
                     </div>
                     <span class="text-gray-600 text-sm transition-colors group-hover:text-gray-800 md:hidden lg:block">X,XL,XS</span>
                 </div>

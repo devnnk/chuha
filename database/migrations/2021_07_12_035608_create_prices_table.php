@@ -12,7 +12,7 @@ class CreatePricesTable extends Migration
             $table->id();
             $table->string('type');
             $table->bigInteger('amount')->default(0);
-            $table->bigInteger('price')->default(0);
+            $table->float('price')->default(0);
             $table->text('options')->nullable();
 
             $table->bigInteger('item_id')->unsigned();

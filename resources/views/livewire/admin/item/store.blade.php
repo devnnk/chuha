@@ -26,12 +26,6 @@
                         <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                             <div class="text-lg text-gray-600 leading-7 font-semibold">Info item</div>
                             <div class="mt-4">
-                                <x-jet-label for="name" value="{{ __('Name') }}"/>
-                                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name"
-                                             :value="$item && isset($item->name) ? $item->name : old('name')"
-                                             required/>
-                            </div>
-                            <div class="mt-4">
                                 <x-jet-label for="sku" value="{{ __('SKU') }}"/>
                                 <x-jet-input id="sku" class="block mt-1 w-full" type="text" name="sku"
                                              :value="$item && isset($item->sku) ? $item->sku : old('sku')"/>

@@ -10,10 +10,9 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('code', 199)->index();
             $table->string('sku')->index();
-            $table->string('title');
+            $table->string('title', 500);
             $table->text('content');
             $table->text('info')->nullable();
             $table->text('recommendation')->nullable();

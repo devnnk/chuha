@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Price;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,10 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->only('name', 'sku', 'title', 'content', 'info', 'recommendation', 'images', 'product_id', 'status');
+        $data = $request->only('sku', 'title', 'content', 'info', 'recommendation', 'images', 'product_id', 'status');
         $data_price = $request->only('pick_number_set_price', 'type', 'price', 'amount');
+
+        $item = Item::create($data);
 
         $pick_number_set_price = (int)$data_price['pick_number_set_price'];
 
@@ -34,14 +37,14 @@ class ItemController extends Controller
 
         foreach ($data_price['type'] as $key => $type) {
             if ($key >= $pick_number_set_price) break;
-            $data_price_final[] = [
+            Price::create([
                 'type' => $type,
-                'price' => $data_price['price'],
-                'amount' => $data_price['amount'],
-            ];
+                'price' => (float)($data_price['price'][$key] ?? 0),
+                'amount' => (int)($data_price['amount'][$key] ?? 0),
+                'item_id' => $item->id
+            ]);
         }
 
-        Item::create($data);
         return back()->with('notify', ['message' => isset($data['id']) && $data['id'] ? 'Update success.' : 'Create success!', 'type' => 'success']);
     }
 
