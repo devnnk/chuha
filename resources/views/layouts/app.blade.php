@@ -20,6 +20,10 @@
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
+        @if (\Illuminate\Support\Facades\Session::has('notify'))
+            <x-jet-banner :stype="\Illuminate\Support\Facades\Session::get('notify')['type']"
+                          :message="\Illuminate\Support\Facades\Session::get('notify')['message']"/>
+        @endif
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')

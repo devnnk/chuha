@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function create()
     {
         $category_count = Category::count();
-        if (!$category_count) return redirect()->route('admin.category.index');
+        if (!$category_count) return redirect()->route('admin.category.index')->with('notify', ['message' => 'You need add category', 'type' => 'warning']);
         return view('admin.product.store');
     }
 
@@ -58,6 +58,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Category::findorfail($id)->delete();
-        return back()->with('notify', ['message' => 'Deleted']);
+        return back()->with('notify', ['message' => 'Deleted', 'type' => 'success']);
     }
 }

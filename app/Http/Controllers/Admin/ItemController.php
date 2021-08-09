@@ -20,7 +20,7 @@ class ItemController extends Controller
     public function create()
     {
         $product_count = Product::count();
-        if (!$product_count) return redirect()->route('admin.item.index');
+        if (!$product_count) return redirect()->route('admin.item.index')->with('notify', ['message' => 'You need add product', 'type' => 'warning']);
         return view('admin.item.store');
     }
 
@@ -32,8 +32,6 @@ class ItemController extends Controller
         $item = Item::create($data);
 
         $pick_number_set_price = (int)$data_price['pick_number_set_price'];
-
-        $data_price_final = [];
 
         foreach ($data_price['type'] as $key => $type) {
             if ($key >= $pick_number_set_price) break;
