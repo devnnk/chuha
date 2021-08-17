@@ -26,16 +26,16 @@
                                             ID
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Name
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Title
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             SKU
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Title
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Prices
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
@@ -43,7 +43,19 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                            Status
+                                            Info
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                            recommendation
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                            images
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                            status
                                         </th>
                                         <th scope="col" class="relative px-6 py-3 text-right">
                                             ###
@@ -57,16 +69,29 @@
                                                 {{ $item->id }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                                {{ $item->name }}
+                                                {{ $item->title }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                                 {{ $item->product->name }}
                                             </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-left">
+                                                @foreach($item->prices as $key => $price)
+                                                    <p>{{$key + 1}}. Price: <span class="text-lg">{!! $price->price !!}</span> Type: <span class="text-lg">{!! $price->type !!}</span> Amount: <span class="text-lg">{!! $price->amount !!}</span></p>
+                                                @endforeach
+                                            </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                <img src="{{ $item->banner }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                {!! $item->content !!}
                                             </td>
                                             <td class="text-center">
-                                                {{ $item->position }}
+                                                {!! $item->info !!}
+                                            </td>
+                                            <td class="text-center">
+                                                {!! $item->recommendation !!}
+                                            </td>
+                                            <td class="text-center flex">
+                                                @foreach(\App\Handle\ImageHandle::images($item->images) as $image)
+                                                    <img src="{!! $image !!}" style="width: 30px">
+                                                @endforeach
                                             </td>
                                             <td class="text-center">
                                                 <span wire:click.debounce.250ms="updateStatus('{{$item->id}}')"
@@ -75,12 +100,10 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('admin.product.show', ['product' => $item->id]) }}"
-                                                   class="text-purple-700 hover:text-purple-900">Lịch sử</a>
-                                                <a href="{{ route('admin.product.edit', ['product' => $item->id]) }}"
-                                                   class="text-indigo-600 hover:text-indigo-900">Sửa</a>
+                                                <a href="{{ route('admin.item.edit', ['item' => $item->id]) }}"
+                                                   class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$item->account_code .' - ' . $item->symbol}}', '{{route('admin.product.destroy', ['product' => $item->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$item->id}}', '{{route('admin.item.destroy', ['item' => $item->id])}}')">Xóa</span>
                                             </td>
                                         </tr>
                                     @endforeach

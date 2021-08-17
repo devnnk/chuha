@@ -35,7 +35,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
         @foreach($items as $item)
             <a class="p-4 sm:p-6 md:p-3 md:pb-4 lg:p-6 bg-white shadow-sm hover:shadow-lg focus:shadow-lg transition group flex flex-col justify-start"
-               big="true" href="https://partners.laravel.com/partners/jump24">
+               big="true" href="{{ route('item', ['item'=> $item->code]) }}">
                 <img class="w-full mt-auto mb-6 md:mb-4 lg:mb-6"
                      src="{{ \App\Handle\ImageHandle::imageFirst($item->images) }}" alt="">
                 <div class="flex items-center mb-4 justify-start">
@@ -45,7 +45,8 @@
                 </div>
                 <div class="flex justify-between">
                     <div class="flex justify-start items-center text-featured">
-                        <span class="leading-none block text-sm font-medium">{{ $item->prices->count() ? $item->prices : '' }}</span>
+                        <span
+                            class="leading-none block text-sm font-medium">{{ $item->prices->count() ? $item->prices : '' }}</span>
                     </div>
                     <span class="text-gray-600 text-sm transition-colors group-hover:text-gray-800 md:hidden lg:block">X,XL,XS</span>
                 </div>

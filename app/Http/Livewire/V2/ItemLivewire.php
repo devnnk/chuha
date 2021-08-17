@@ -7,17 +7,23 @@ use App\Models\Item;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class HomeLivewire extends Component
+class ItemLivewire extends Component
 {
     use WithPagination;
 
+    public $code = "";
+
+    public function mount($item)
+    {
+        if (!isset($item)) abort(404);
+        $this->code = $item;
+    }
+
     public function render()
     {
-        $categories = Category::where('status', 'open')->get();
-        $items = Item::where('status', 'open')->paginate();
-        return view('livewire.v2.home', [
-            'categories' => $categories,
-            'items' => $items,
+        $item = Item::where('status', 'open')->where('code', $this->code)->firstorfail();
+        return view('livewire.v2.item', [
+            'item' => $item,
         ])->layout('layouts.app-v2');
     }
 }

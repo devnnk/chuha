@@ -97,7 +97,7 @@
                                         onchange="numberOfPrice(this.value)"
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                                     @for($i = 1; $i<=6;$i++)
-                                        <option value="{{$i}}">{{$i}}</option>
+                                        <option value="{{$i}}" {{$item && $item->prices->count() === $i ? 'selected' : ''}}>{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -110,18 +110,18 @@
                                         <div>
                                             <x-jet-label for="type" value="{{ __('Type') }}"/>
                                             <x-jet-input id="type" class="block mt-1 w-full" type="text" name="type[]"
-                                                         :value="$item && isset($item->type) ? $item->price : old('type')"/>
+                                                         :value="$item && isset($item->prices[$i - 1]) ? $item->prices[$i - 1]->type : ''"/>
                                         </div>
                                         <div class="mt-4">
                                             <x-jet-label for="price" value="{{ __('Price') }}"/>
                                             <x-jet-input id="price" class="block mt-1 w-full" type="text" name="price[]"
-                                                         :value="$item && isset($item->price) ? $item->price : old('price')"/>
+                                                         :value="$item && $item->prices->count() && isset($item->prices[$i - 1]) ? $item->prices[$i - 1]->price : ''"/>
                                         </div>
                                         <div class="mt-4">
                                             <x-jet-label for="amount" value="{{ __('Amount') }}"/>
                                             <x-jet-input id="amount" class="block mt-1 w-full" type="text"
                                                          name="amount[]"
-                                                         :value="$item && isset($item->amount) ? $item->amount : old('amount')"/>
+                                                         :value="$item && $item->prices->count() && isset($item->prices[$i - 1]) ? $item->prices[$i - 1]->amount : ''"/>
                                         </div>
                                     </div>
                                 </div>

@@ -52,6 +52,6 @@ class Item extends Authenticatable
 
     public function prices()
     {
-        return $this->hasMany(Price::class, 'id', 'item_id');
+        return $this->hasMany(Price::class, 'item_id', 'id');
     }
 }

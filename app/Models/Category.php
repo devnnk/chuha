@@ -18,11 +18,11 @@ class Category extends Authenticatable
         'status'
     ];
 
-    private static function codeStory($name)
+    private static function codeStory($name, $id)
     {
         $code = Str::lower(Str::slug($name));
         $category = Category::wherecode($code)->first();
-        return $category ? self::codeStory(strtolower(Str::slug($code) . "-" . Str::random(4))) : $code;
+        return $category && $category->id !== (int)$id ? self::codeStory(strtolower(Str::slug($code) . "-" . Str::random(4)), $id) : $code;
     }
 
     protected static function boot()
@@ -30,7 +30,8 @@ class Category extends Authenticatable
         parent::boot();
 
         static::saving(function ($query) {
-            $query->code = self::codeStory($query->name);
+            $id = $query->id;
+            $query->code = self::codeStory($query->name, $id);
         });
 
         // auto-sets values on creation

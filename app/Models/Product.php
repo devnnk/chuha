@@ -20,18 +20,18 @@ class Product extends Authenticatable
         'desc'
     ];
 
-    private static function codeProduct($name)
+    private static function codeProduct($name, $id)
     {
         $code = Str::lower(Str::slug($name));
         $product = Product::wherecode($code)->first();
-        return $product ? self::codeStory(strtolower(Str::slug($code) . "-" . Str::random(4))) : $code;
+        return $product && $product->id != $id ? self::codeProduct(strtolower(Str::slug($code) . "-" . Str::random(4)), $id) : $code;
     }
 
-    private static function skuProduct($sku)
+    private static function skuProduct($sku, $id)
     {
         $sku = Str::upper(Str::slug($sku));
         $product = Product::wheresku($sku)->first();
-        return $product ? self::skuProduct(Str::upper(Str::slug($sku) . Str::random(2))) : $sku;
+        return $product && $product->id != (int)$id ? self::skuProduct(Str::upper(Str::slug($sku) . Str::random(2)), $id) : $sku;
     }
 
     protected static function boot()
@@ -39,8 +39,9 @@ class Product extends Authenticatable
         parent::boot();
 
         static::saving(function ($query) {
-            $query->code = self::codeProduct($query->name);
-            $query->sku = self::skuProduct($query->sku);
+            $id = $query->id;
+            $query->code = self::codeProduct($query->name, $id);
+            $query->sku = self::skuProduct($query->sku, $id);
         });
 
         // auto-sets values on creation

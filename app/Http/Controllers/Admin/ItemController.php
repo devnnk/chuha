@@ -26,15 +26,22 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->only('sku', 'title', 'content', 'info', 'recommendation', 'images', 'product_id', 'status');
+        $data = $request->only('sku', 'title', 'content', 'info', 'recommendation', 'images', 'product_id', 'status', 'id');
         $data_price = $request->only('pick_number_set_price', 'type', 'price', 'amount');
 
-        $item = Item::create($data);
+        $item = Item::find($data['id']);
 
         $pick_number_set_price = (int)$data_price['pick_number_set_price'];
 
+        if ($item) {
+            $item->update($data);
+            $item->prices()->delete();
+        } else {
+            $item = Item::create($data);
+        }
+
         foreach ($data_price['type'] as $key => $type) {
-            if ($key >= $pick_number_set_price) break;
+            if ($key >= $pick_number_set_price || !$type || !(int)($data_price['amount'][$key]) || !(float)($data_price['price'][$key])) break;
             Price::create([
                 'type' => $type,
                 'price' => (float)($data_price['price'][$key] ?? 0),
@@ -53,7 +60,7 @@ class ItemController extends Controller
 
     public function destroy($id)
     {
-        Category::findorfail($id)->delete();
-        return back()->with('notify', ['message' => 'Deleted']);
+        Item::findorfail($id)->delete();
+        return back()->with('notify', ['message' => 'Deleted', 'type' => 'warning']);
     }
 }
