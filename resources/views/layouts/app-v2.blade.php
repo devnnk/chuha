@@ -40,38 +40,8 @@
 
 <footer style="background: linear-gradient(0deg,#fff 90%,hsla(0,0%,100%,0))" class="relative z-30">
     <div class="relative z-20 overflow-x-hidden">
-        <div class="relative max-w-screen-2xl mx-auto sm:px-8">
-            <div class="absolute inset-0 flex flex-col px-4 lg:px-12 xl:px-16">
-                <div class="flex-1"></div>
-                <div class="flex-1 bg-gray-100"></div>
-            </div>
-            <div class="relative max-w-screen-xl mx-auto px-8">
-                <section class="relative z-10 p-6 bg-white shadow-lg md:flex md:items-center md:p-12 lg:p-16">
-                    <div class="content md:pr-12">
-                        <h2 class="text-3xl tracking-tight sm:text-4xl md:mt-4 xl:text-5xl">Become a Laravel
-                            Partner</h2>
-                        <p class="mt-3 max-w-xl text-gray-600 sm:mt-5 md:max-w-2xl md:mt-8 md:text-lg">Laravel Partners
-                            are elite shops providing top-notch Laravel development and consulting. Each of our partners
-                            can help you craft a beautiful, well-architected project.</p>
-                    </div>
-                    <a class="group relative h-12 inline-flex w-64 border border-red-600 sm:w-56 focus:outline-none mt-8"
-                       href="/partners">
-    <span
-        class="absolute inset-0 inline-flex items-center justify-center self-stretch px-6 text-white text-center font-medium bg-red-600 ring-1 ring-red-600 ring-offset-1 ring-offset-red-600 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
-        Our Partners
-    </span>
-                    </a>
-
-                </section>
-            </div>
-        </div>
-
         <div class="max-w-screen-2xl mx-auto px-4 lg:px-12 xl:px-16">
             <div class="px-8 pb-12 bg-gray-100 xl:px-20">
-                <div>
-                    <img class="-mt-2 max-w-4xl w-full transform -translate-x-12 lg:-translate-x-24 xl:-translate-x-40"
-                         src="/img/logotype.min.svg" alt="Laravel">
-                </div>
                 <div class="mt-6 sm:mt-12 md:flex">
                     <div class="divide-y divide-gray-600 divide-opacity-25 sm:hidden">
                         <div
@@ -132,13 +102,11 @@
                                 x-transition:leave-end="opacity-0 -translate-y-8"
                             >
                                 <ul class="space-y-2 text-gray-600 text-sm">
-                                    <li><a href="https://laracasts.com">Laracasts</a></li>
                                     <li><a href="https://laravel-news.com">Laravel News</a></li>
                                     <li><a href="https://laracon.us">Laracon</a></li>
                                     <li><a href="https://laracon.eu/">Laracon EU</a></li>
                                     <li><a href="https://larajobs.com">Jobs</a></li>
                                     <li><a href="https://certification.laravel.com/">Certification</a></li>
-                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -282,9 +250,6 @@
                             <div class="mt-6">
                                 <ul class="space-y-3 text-gray-600 text-sm">
                                     <li>
-                                        <a href="https://laracasts.com" class="transition-colors hover:text-gray-700">Laracasts</a>
-                                    </li>
-                                    <li>
                                         <a href="https://laravel-news.com"
                                            class="transition-colors hover:text-gray-700">Laravel News</a>
                                     </li>
@@ -301,10 +266,6 @@
                                     <li>
                                         <a href="https://certification.laravel.com/"
                                            class="transition-colors hover:text-gray-700">Certification</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://laracasts.com/discuss"
-                                           class="transition-colors hover:text-gray-700">Forums</a>
                                     </li>
                                 </ul>
                             </div>
@@ -479,11 +440,6 @@
 </footer>
 
 @livewireScripts
-<script>
-    var algolia_app_id = 'BH4D9OD16A';
-    var algolia_search_key = '7dc4fe97e150304d1bf34f5043f178c4';
-    var version = '8.x';
-</script>
 
 @stack('js')
 

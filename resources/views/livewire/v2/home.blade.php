@@ -45,10 +45,13 @@
                 </div>
                 <div class="flex justify-between">
                     <div class="flex justify-start items-center text-featured">
+                        @php
+                            $count_price = $item->prices->count();
+                        @endphp
                         <span
-                            class="leading-none block text-sm font-medium">{{ $item->prices->count() ? $item->prices : '' }}</span>
+                            class="leading-none block text-sm font-medium">{{ $count_price ? ($count_price > 1 ? $item->prices()->orderby('price', 'ASC')->first()->price . '$ - ' . $item->prices()->orderby('price', 'DESC')->first()->price . '$' : $item->prices()->first()->price . '$') : '' }}</span>
                     </div>
-                    <span class="text-gray-600 text-sm transition-colors group-hover:text-gray-800 md:hidden lg:block">X,XL,XS</span>
+                    <span class="text-gray-600 text-sm transition-colors group-hover:text-gray-800 md:hidden lg:block">{{$count_price ? $item->prices->implode('type', ',') : ''}}</span>
                 </div>
             </a>
         @endforeach
