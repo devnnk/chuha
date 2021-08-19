@@ -7,8 +7,7 @@ use Livewire\Livewire;
 use App\Http\Livewire\Admin\Category\{CategoryLivewire, CategoryStoreLivewire};
 use App\Http\Livewire\Admin\Item\{ItemLivewire, ItemStoreLivewire};
 use App\Http\Livewire\Admin\Product\{ProductLivewire, ProductStoreLivewire};
-use App\Http\Livewire\Components\DeleteModal;
-use App\Http\Livewire\Components\HeaderV2;
+use App\Http\Livewire\Components\{HeaderV2, DeleteModal, SearchV2};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,7 +33,8 @@ class AppServiceProvider extends ServiceProvider
             'admin-item-store' => ItemStoreLivewire::class,
 
             'delete-modal' => DeleteModal::class,
-            'header-v2' => HeaderV2::class
+            'header-v2' => HeaderV2::class,
+            'search-v2' => SearchV2::class,
         ];
 
         foreach ($components as $name => $class) {

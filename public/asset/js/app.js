@@ -1631,8 +1631,7 @@
             var r = n(290), i = n.n(r);
 
             function a() {
-                return {
-                }
+                return {}
             }
         }, 54: (e, t, n) => {
             "use strict";

@@ -441,8 +441,11 @@
 
 @livewireScripts
 
-@stack('js')
-
+<script src="{{ asset('asset/js/alpine.min.js') }}" defer></script>
+<script src="{{ asset('asset/js/alpine-ie11.min.js') }}" defer></script>
+{{--<script src="{{ asset('asset/js/livewire.js') }}" data-turbolinks-eval="false"></script>--}}
 <script src="{{ asset('asset/js/app.js') }}"></script>
+
+@stack('js')
 </body>
 </html>
