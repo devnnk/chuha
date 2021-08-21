@@ -78,7 +78,7 @@
                                 <select name="status" id="status"
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                                     <option value="open">OPEN</option>
-                                    <option value="close">CLOSE</option>
+                                    <option value="close" {{$item->status === 'close' ? 'selected' : ''}}>CLOSE</option>
                                 </select>
                             </div>
 

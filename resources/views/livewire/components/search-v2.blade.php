@@ -11,28 +11,30 @@
             <input
                 wire:keydown.debounce.400ms="isFirst"
                 wire:model.debounce.500ms="search" name="search"
-                value="{{ $search }}"
+                value="{{ $search }}" onfocusout="hiddenListDataSearch()" maxlength="191"
                 class="flex-1 w-full pl-8 pr-4 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none"
                 placeholder="Search Item" aria-label="Search Item">
         </div>
         @if($search && !$is_first)
             <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm z-30" role="listbox"
                  id="autocomplete-listbox-0">
-                <a class="search-result block px-4 py-3 bg-gray-100 transition-colors duration-200 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
-                   id="search-result-1" href="https://laravel.com/docs/8.x/container#introduction">
-                    <div class="text-sm font-medium"><em class="not-italic bg-red-600 bg-opacity-25">A</em>rchitecture
-                        Concepts
-                    </div>
-                    <div class="mt-2">
-                        <div class="text-sm">
-                            <span class="text-red-600 opacity-75">#</span> <span>Service Container</span>
-                        </div>
-
-                        <div class="text-sm">
-                            &gt; <span>Introduction</span>
-                        </div>
-                    </div>
-                </a>
+                @if($items->count())
+                    @foreach($items as $item)
+                        <a class="search-result block px-4 py-3 bg-gray-100 transition-colors duration-200 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                           id="search-result-1" href="{{ route('item', ['item'=> $item->code]) }}">
+                            <div class="text-sm font-medium">{{ $item->title }}</div>
+                            <div class="mt-2">
+                                <div class="text-sm"><span>{{ $item->product->name }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                @else
+                    <span
+                        class="search-result block px-4 py-3 bg-gray-100 transition-colors duration-200 hover:bg-gray-200 focus:outline-none focus:bg-gray-200">
+                        <div class="text-sm font-medium">No results were found!</div>
+                    </span>
+                @endif
             </div>
         @endif
     </div>
