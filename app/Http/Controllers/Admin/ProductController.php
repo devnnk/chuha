@@ -57,7 +57,7 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        Category::findorfail($id)->delete();
+        Product::findorfail($id)->delete();
         return back()->with('notify', ['message' => 'Deleted', 'type' => 'success']);
     }
 }
