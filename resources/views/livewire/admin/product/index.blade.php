@@ -70,7 +70,8 @@
                                                 {{ $product->category->name }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                <img src="{{ $product->banner }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                <img src="{{ $product->banner }}"
+                                                     style="width: 70px; height: 70px; object-fit: cover">
                                             </td>
                                             <td class="text-center">
                                                 {{ $product->position }}
@@ -82,21 +83,19 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('admin.product.show', ['product' => $product->id]) }}"
-                                                   class="text-purple-700 hover:text-purple-900">Lịch sử</a>
                                                 <a href="{{ route('admin.product.edit', ['product' => $product->id]) }}"
                                                    class="text-indigo-600 hover:text-indigo-900">Sửa</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$product->account_code .' - ' . $product->symbol}}', '{{route('admin.product.destroy', ['product' => $product->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$product->id .' - ' . $product->name}}', '{{route('admin.product.destroy', ['product' => $product->id])}}')">Xóa</span>
                                             </td>
                                         </tr>
                                     @endforeach
                                     <!-- More people... -->
                                     </tbody>
                                 </table>
-{{--                                <div class="p-6 ">--}}
-{{--                                    {{ $products->links() }}--}}
-{{--                                </div>--}}
+                                {{--                                <div class="p-6 ">--}}
+                                {{--                                    {{ $products->links() }}--}}
+                                {{--                                </div>--}}
                             </div>
                         </div>
                     </div>

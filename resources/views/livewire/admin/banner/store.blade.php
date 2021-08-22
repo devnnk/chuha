@@ -3,14 +3,14 @@
         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 
             <div class="mt-8 text-2xl">
-                Create product
+                Create banner
             </div>
 
             <div class="mt-6 text-gray-500">
                 <a href="{{route('admin.banner.index')}}">
                     <button type="submit"
                             class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                        Product
+                        Banner
                     </button>
                 </a>
             </div>
@@ -36,9 +36,9 @@
                                      required/>
                     </div>
                     <div class="mt-4">
-                        <x-jet-label for="banner" value="{{ __('Banner (Upload image to imgur)') }}"/>
-                        <x-jet-input id="banner" class="block mt-1 w-full" type="text" name="banner"
-                                     :value="$banner && isset($banner->banner) ? $banner->banner : old('banner')"/>
+                        <x-jet-label for="image" value="{{ __('Image') }}"/>
+                        <x-jet-input id="image" class="block mt-1 w-full" type="text" name="image"
+                                     :value="$banner && isset($banner->image) ? $banner->image : old('image')"/>
                     </div>
                     <div class="mt-4">
                         <x-jet-label for="position" value="{{ __('Position') }}"/>

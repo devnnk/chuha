@@ -47,33 +47,31 @@
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($products as $product)
+                                    @foreach($banners as $banner)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                                                {{ $product->name }}
+                                                {{ $banner->name }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $product->category->name }}
+                                                {{ $banner->url }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                <img src="{{ $product->banner }}" style="width: 70px; height: 70px; object-fit: cover">
+                                                <img src="{{ $banner->image }}" style="width: 70px; height: 70px; object-fit: cover">
                                             </td>
                                             <td class="text-center">
-                                                {{ $product->position }}
+                                                {{ $banner->position }}
                                             </td>
                                             <td class="text-center">
-                                                <span wire:click.debounce.250ms="updateStatus('{{$product->id}}')"
+                                                <span wire:click.debounce.250ms="updateStatus('{{$banner->id}}')"
                                                       class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer">
-                                                    {{ $product->status }}
+                                                    {{ $banner->status }}
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('admin.product.show', ['product' => $product->id]) }}"
-                                                   class="text-purple-700 hover:text-purple-900">Lịch sử</a>
-                                                <a href="{{ route('admin.product.edit', ['product' => $product->id]) }}"
+                                                <a href="{{ route('admin.product.edit', ['product' => $banner->id]) }}"
                                                    class="text-indigo-600 hover:text-indigo-900">Sửa</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$product->account_code .' - ' . $product->symbol}}', '{{route('admin.product.destroy', ['product' => $product->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$banner->account_code .' - ' . $banner->symbol}}', '{{route('admin.product.destroy', ['product' => $banner->id])}}')">Xóa</span>
                                             </td>
                                         </tr>
                                     @endforeach

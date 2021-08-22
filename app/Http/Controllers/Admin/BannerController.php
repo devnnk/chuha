@@ -21,7 +21,7 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->only('name', 'url', 'position', 'status');
+        $data = $request->only('name', 'url', 'position', 'status', 'image');
         $banner = Banner::find($request->id);
         if ($banner) {
             $banner->update($data);

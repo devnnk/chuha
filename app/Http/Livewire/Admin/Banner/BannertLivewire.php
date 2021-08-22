@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Banner;
 
 use App\Http\Livewire\TraitLivewire\Modal;
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Request;
@@ -14,17 +15,17 @@ class BannertLivewire extends Component
 
     public function render()
     {
-        $products = Product::all();
+        $banners = Banner::all();
         return view('livewire.admin.banner.index', [
-            'products' => $products
+            'banners' => $banners
         ]);
     }
 
     public function updateStatus($id)
     {
-        $category = Product::find($id);
-        if (!$category) return redirect(Request::url());
-        $status = $category->status === 'close' ? 'open' : 'close';
-        $category->update(['status' => $status]);
+        $banner = Banner::find($id);
+        if (!$banner) return redirect(Request::url());
+        $status = $banner->status === 'close' ? 'open' : 'close';
+        $banner->update(['status' => $status]);
     }
 }

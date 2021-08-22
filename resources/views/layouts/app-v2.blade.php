@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Laravel - The PHP Framework For Web Artisans</title>
+    <title>Chu Ha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 

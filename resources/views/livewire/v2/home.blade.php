@@ -6,27 +6,26 @@
     <section class="md:py-20 xl:py-28 py-12">
         <div class="swiper-container w-100">
             <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide px-20 py-6 flex items-center justify-center">
-                    <div class="flex justify-center py-4 w-full">
-                        <img class="w-full rounded-full object-cover" style="height: 300px; max-height: 300px"
-                             src="https://source.unsplash.com/weekly?water">
-                    </div>
+            @if($banners->count())
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @foreach($banners as $banner)
+                        <div class="swiper-slide px-20 py-6 flex items-center justify-center">
+                            <a class="flex justify-center py-4 w-full" href="{{$banner->url}}">
+                                <img class="w-full rounded-full object-cover" style="height: 300px; max-height: 300px"
+                                     src="{{$banner->image}}">
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="swiper-slide px-20 flex items-center justify-center">
-                    <div class="flex justify-center py-4 w-full">
-                        <img class="w-full rounded-full object-cover" style="height: 300px; max-height: 300px"
-                             src="https://source.unsplash.com/weekly?mountain">
-                    </div>
-                </div>
-
-            </div>
+            @endif
+            @if($banners->count() > 1)
             <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev bg-white w-16 h-16 text-xs rounded-full text-green-500 mx-10"></div>
-            <div class="swiper-button-next bg-white w-16 h-16 text-xs rounded-full text-green-500 mx-10"></div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev bg-white w-16 h-16 text-xs rounded-full text-green-500 mx-10"></div>
+                <div class="swiper-button-next bg-white w-16 h-16 text-xs rounded-full text-green-500 mx-10"></div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            @endif
         </div>
     </section>
 </div>
@@ -51,7 +50,8 @@
                         <span
                             class="leading-none block text-sm font-medium">{{ $count_price ? ($count_price > 1 ? $item->prices()->orderby('price', 'ASC')->first()->price . '$ - ' . $item->prices()->orderby('price', 'DESC')->first()->price . '$' : $item->prices()->first()->price . '$') : '' }}</span>
                     </div>
-                    <span class="text-gray-600 text-sm transition-colors group-hover:text-gray-800 md:hidden lg:block">{{$count_price ? $item->prices->implode('type', ',') : ''}}</span>
+                    <span
+                        class="text-gray-600 text-sm transition-colors group-hover:text-gray-800 md:hidden lg:block">{{$count_price ? $item->prices->implode('type', ',') : ''}}</span>
                 </div>
             </a>
         @endforeach
@@ -86,29 +86,6 @@
                 </ul>
             </div>
         @endforeach
-        <div class="md:w-1/2 md:px-12 pr-12">
-            <div class="lg:p-16 relative max-w-lg p-6 bg-white shadow-lg">
-                <div
-                    class="sm:w-24 sm:h-24 md:w-16 md:h-16 lg:w-24 lg:h-24 absolute right-0 flex items-center justify-center w-16 h-16 transform translate-x-8 bg-black">
-                    <img class="w-9 h-9 sm:w-14 sm:h-14 md:w-9 md:h-9 lg:w-14 lg:h-14"
-                         src="/img/icons/laracasts.min.svg" alt="Laracasts">
-                </div>
-                <h6 class="text-sm font-medium text-gray-600">Featured Resource</h6>
-                <h3 class="sm:mt-5 sm:text-2xl mt-3 text-xl font-medium">Laracasts</h3>
-                <p class="sm:mt-5 sm:text-base md:mt-8 md:leading-6 lg:max-w-sm max-w-xs mt-3 text-xs leading-5 text-gray-600">
-                    Nine out of ten doctors recommend Laracasts over competing brands. Check them out, see for yourself,
-                    and massively level up your development skills in the process.</p>
-                <a class="group relative h-12 inline-flex w-64 border border-red-600 sm:w-56 focus:outline-none mt-6"
-                   href="https://laracasts.com">
-    <span
-        class="absolute inset-0 inline-flex items-center justify-center self-stretch px-6 text-red-600 text-center font-medium bg-white ring-1 ring-red-600 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
-        Start Learning →
-    </span>
-                </a>
-
-            </div>
-        </div>
-
     </div>
 </div>
 @push('js')
