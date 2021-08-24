@@ -29,7 +29,7 @@ class ItemController extends Controller
         $data = $request->only('sku', 'title', 'content', 'info', 'recommendation', 'images', 'product_id', 'status', 'id');
         $data_price = $request->only('pick_number_set_price', 'type', 'price', 'amount');
 
-        $item = Item::find($data['id']);
+        $item = Item::find($request->id);
 
         $pick_number_set_price = (int)$data_price['pick_number_set_price'];
 

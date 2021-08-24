@@ -27,7 +27,7 @@
                         <ul class="grid gap-3 relative sm:grid-cols-2 md:grid-cols-3">
                             @foreach($category->products as $product)
                                 <li>
-                                    <a href="https://vapor.laravel.com"
+                                    <a href="{{ route('product', ['code' => $product->code]) }}"
                                        class="flex items-center p-4 shadow-lg">
                                         <div class="w-14 h-14 flex items-center justify-center">
                                             <img src="{{ $product->banner }}" alt="Icon" style="object-fit: contain"

@@ -78,7 +78,9 @@
                                 <select name="status" id="status"
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                                     <option value="open">OPEN</option>
-                                    <option value="close" {{$item->status === 'close' ? 'selected' : ''}}>CLOSE</option>
+                                    <option value="close" {{$item && $item->status === 'close' ? 'selected' : ''}}>
+                                        CLOSE
+                                    </option>
                                 </select>
                             </div>
 
@@ -97,7 +99,8 @@
                                         onchange="numberOfPrice(this.value)"
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                                     @for($i = 1; $i<=6;$i++)
-                                        <option value="{{$i}}" {{$item && $item->prices->count() === $i ? 'selected' : ''}}>{{$i}}</option>
+                                        <option
+                                            value="{{$i}}" {{$item && $item->prices->count() === $i ? 'selected' : ''}}>{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>
