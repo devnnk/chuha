@@ -8,7 +8,7 @@ use App\Http\Livewire\Admin\Category\{CategoryLivewire, CategoryStoreLivewire};
 use App\Http\Livewire\Admin\Item\{ItemLivewire, ItemStoreLivewire};
 use App\Http\Livewire\Admin\Product\{ProductLivewire, ProductStoreLivewire};
 use App\Http\Livewire\Admin\Banner\{BannertLivewire, BannertStoreLivewire};
-use App\Http\Livewire\Components\{HeaderV2, DeleteModal, SearchV2};
+use App\Http\Livewire\Components\{HeaderV2, DeleteModal, SearchV2, CartV2};
 use App\Http\Livewire\V2\Listitem\BannerLivewire;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
             'delete-modal' => DeleteModal::class,
             'header-v2' => HeaderV2::class,
             'search-v2' => SearchV2::class,
+            'cart-v2' => CartV2::class,
 
             'listitem-banner-v2' => BannerLivewire::class,
         ];

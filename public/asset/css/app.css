@@ -1390,6 +1390,10 @@ pre[class*=language-].line-numbers > code {
     border-radius: .5rem !important
 }
 
+.rounded-full {
+    border-radius: 9999px;
+}
+
 .border-dashed {
     border-style: dashed !important
 }
@@ -1628,6 +1632,10 @@ pre[class*=language-].line-numbers > code {
     margin-left: 1.25rem !important
 }
 
+.ml-32 {
+    margin-left: 8rem !important
+}
+
 .mt-6 {
     margin-top: 1.5rem !important
 }
@@ -1752,6 +1760,10 @@ pre[class*=language-].line-numbers > code {
 
 .overflow-x-hidden {
     overflow-x: hidden !important
+}
+
+.p-1 {
+    padding: .25rem !important
 }
 
 .p-2 {

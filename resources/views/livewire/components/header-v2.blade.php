@@ -9,6 +9,8 @@
             <ul class="relative hidden lg:ml-6 lg:pt-3 lg:flex lg:items-end lg:space-x-6 xl:ml-14 xl:space-x-10">
                 @include('common/header-category-product-v2')
             </ul>
+            <livewire:cart-v2/>
+
             <div class="flex-1 flex items-center justify-end">
                 <button
                     class="ml-2 relative w-10 h-10 p-2 text-red-600 lg:hidden focus:outline-none focus:shadow-outline"
