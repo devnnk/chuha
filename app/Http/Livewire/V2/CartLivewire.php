@@ -16,6 +16,7 @@ class CartLivewire extends Component
     protected $paginationTheme = 'tailwind';
 
     public $code = "";
+    public $messageOrderNow = "";
 
     public function updatingSearch()
     {
@@ -39,11 +40,18 @@ class CartLivewire extends Component
         ])->layout('layouts.app-v2');
     }
 
-    public function removeItem($row_id) {
+    public function removeItem($row_id)
+    {
         Cart::remove($row_id);
     }
 
-    public function removeAll() {
+    public function removeAll()
+    {
         Cart::destroy();
+    }
+
+    public function orderNow()
+    {
+        $this->messageOrderNow = 'Function not found!';
     }
 }

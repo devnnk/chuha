@@ -47,6 +47,17 @@
                     </div>
                 </div>
             @endforeach
+            <div class="max-w-screen-xl p-4 sm:p-7 mx-auto text-center">
+                <div wire:click.debounce.500ms="orderNow"
+                     class="group relative h-12 inline-flex w-64 border border-red-600 sm:w-56 focus:outline-none sm:mt-8 md:mt-10 mt-6 cursor-pointer"
+                >
+                    <span
+                        class="absolute inset-0 inline-flex items-center justify-center self-stretch px-6 text-white text-center font-medium bg-red-600 ring-1 ring-red-600 ring-offset-1 ring-offset-red-600 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">Order now</span>
+                </div>
+                <div>
+                    {{$messageOrderNow}}
+                </div>
+            </div>
         @else
             <div class="text-center">
                 <h2>You need add to cart.</h2>

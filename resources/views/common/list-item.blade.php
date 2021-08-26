@@ -1,4 +1,5 @@
-<div class="max-w-screen-xl p-4 sm:p-7 mx-auto mb-10"><h2 class="text-xl mb-7 font-medium">Featured Items:</h2>
+<div class="max-w-screen-xl p-4 sm:p-7 mx-auto mb-10"><h2
+        class="text-xl mb-7 font-medium">{{$title ?? 'Featured Items:'}}</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
         @foreach($items as $item)

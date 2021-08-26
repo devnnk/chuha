@@ -1,10 +1,10 @@
 @push('css')
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ asset('asset/css/swiper-bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/swiper-bundle.min.css') }}">
 @endpush
 <div class="overflow-hidden">
     <section class="md:py-20 xl:py-28 py-12">
-        <div class="swiper-container w-100">
+        <div class="swiper-container w-100 relative">
             <!-- Additional required wrapper -->
             @if($banners->count())
                 <div class="swiper-wrapper">
@@ -12,7 +12,7 @@
                     @foreach($banners as $banner)
                         <div class="swiper-slide px-20 py-6 flex items-center justify-center">
                             <a class="flex justify-center py-4 w-full" href="{{$banner->url}}">
-                                <img class="w-full rounded-full object-cover" style="height: 300px; max-height: 300px"
+                                <img class="w-full object-cover" style="height: 300px; max-height: 300px"
                                      src="{{$banner->image}}">
                             </a>
                         </div>
@@ -32,8 +32,8 @@
 
 
 @push('js')
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{asset('asset/js/swiper-bundle.js')}}"></script>
+    <script src="{{asset('asset/js/swiper-bundle.min.js')}}"></script>
     <script>
         var mySwiper = new Swiper('.swiper-container', {
             // Optional parameters

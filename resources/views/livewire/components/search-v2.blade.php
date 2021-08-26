@@ -1,20 +1,24 @@
 <div class="relative max-w-screen-2xl mx-auto w-full py-10 bg-white transition duration-200">
     <div
         class="ml-4 relative flex-1 flex justify-end max-w-xs w-full lg:absolute lg:right-0 lg:max-w-xxs lg:ml-10 xl:max-w-xs">
-        <div
-            class="relative border-b border-gray-600 border-opacity-50 overflow-hidden transition-all duration-500 lg:w-full hover:w-full focus-within:border-gray-600 w-full">
-            <svg class="absolute inset-y-0 left-0 z-10 mt-1 w-5 h-5 text-gray-900 pointer-events-none" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-            <input
-                wire:keydown.debounce.400ms="isFirst"
-                wire:model.debounce.500ms="search" name="search"
-                value="{{ $search }}" onfocusout="hiddenListDataSearch()" maxlength="191"
-                class="flex-1 w-full pl-8 pr-4 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none"
-                placeholder="Search Item" aria-label="Search Item">
-        </div>
+        <form class="flex" method="GET" action="{{route('search')}}">
+            <div
+                class="relative border-b border-gray-600 border-opacity-50 overflow-hidden transition-all duration-500 lg:w-full hover:w-full focus-within:border-gray-600 w-full">
+                <svg class="absolute inset-y-0 left-0 z-10 mt-1 w-5 h-5 text-gray-900 pointer-events-none" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input
+                    wire:keydown.debounce.400ms="isFirst"
+                    wire:model.debounce.500ms="search" name="search"
+                    value="{{ $search }}" onfocusout="hiddenListDataSearch()" maxlength="191"
+                    class="flex-1 w-full pl-8 pr-4 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none"
+                    placeholder="Search Item" aria-label="Search Item">
+            </div>
+            <button class="px-3 h-8 border border-red-600 cursor-pointer">search</button>
+        </form>
+
         @if($search && !$is_first)
             <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm z-50 overflow-auto" role="listbox"
                  id="autocomplete-listbox-0" style="max-height: 240px">
