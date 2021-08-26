@@ -316,8 +316,16 @@ select {
         margin-right: 1.75rem;
     }
 
+    .md\:mr-8 {
+        margin-right: 2rem;
+    }
+
     .md\:pt-0 {
         padding-top: 0;
+    }
+
+    .md\:mb-0 {
+        margin-bottom: 0;
     }
 
     .md\:mb-8 {
@@ -344,6 +352,11 @@ select {
         line-height: 1.75rem;
     }
 
+    .lg\:text-base {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
     .lg\:static {
         position: static;
     }
@@ -359,11 +372,19 @@ select {
     .lg\:h-auto {
         height: auto;
     }
+
+    .lg\:mr-12 {
+        margin-right: 3rem;
+    }
 }
 
 @media (min-width: 1280px) {
     .container {
         max-width: 1280px
+    }
+
+    .xl\:mr-20 {
+        margin-right: 5rem;
     }
 }
 
@@ -1466,6 +1487,11 @@ pre[class*=language-].line-numbers > code {
     flex: 1 1 0% !important
 }
 
+
+.flex-3 {
+    flex: 3 1 0% !important
+}
+
 .flex-shrink-0 {
     flex-shrink: 0 !important
 }
@@ -1636,12 +1662,20 @@ pre[class*=language-].line-numbers > code {
     margin-left: 8rem !important
 }
 
+.ml-64 {
+    margin-left: 16rem !important
+}
+
 .mt-6 {
     margin-top: 1.5rem !important
 }
 
 .mb-6 {
     margin-bottom: 1.5rem !important
+}
+
+.mb-7 {
+    margin-bottom: 1.75rem !important
 }
 
 .mt-8 {
@@ -2436,6 +2470,10 @@ pre[class*=language-].line-numbers > code {
 }
 
 @media (min-width: 640px) {
+    .sm\:flex {
+        display: flex;
+    }
+
     .sm\:px-7 {
         padding-left: 1.75rem;
         padding-right: 1.75rem;

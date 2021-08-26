@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\V2;
 
 use App\Models\Item;
+use App\Models\Price;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -19,6 +20,7 @@ class ItemLivewire extends Component
     public $price_id;
     public $prices;
     public $qty = 1;
+    public $messsage = '';
 
     public function mount($code)
     {
@@ -38,9 +40,16 @@ class ItemLivewire extends Component
 
     public function addToCart($item)
     {
+        $this->messsage = "";
         $qty = (int)$this->qty;
         $qty = $qty >= 1 && $qty <= 99 ? $qty : 1;
-        Cart::add($item['id'], $item['title'], $qty, $this->price_id);
+        $price = Price::find($this->price_id);
+        Cart::add($item['id'] . "_" . $this->price_id, $this->price_id, $qty, $price->price ?? 0, [
+            'item_id' => $item['id'],
+            'price_id' => $this->price_id,
+            'type' => $price->type ?? 0
+        ]);
         $this->emit('updateCart');
+        $this->messsage = '<p>(<span class="text-red-600">*</span>)Add to cart success</p>';
     }
 }

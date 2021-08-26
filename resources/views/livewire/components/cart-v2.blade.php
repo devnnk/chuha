@@ -1,4 +1,4 @@
-<a href="{{ route('cart') }}" class="flex w-full">
+<a href="{{ route('cart') }}" class="flex w-full ml-64">
     <div
         class="relative flex-1 flex justify-end max-w-xs w-full lg:absolute lg:right-0 lg:max-w-xxs xl:max-w-xs">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart"

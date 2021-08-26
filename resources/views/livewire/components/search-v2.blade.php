@@ -16,12 +16,12 @@
                 placeholder="Search Item" aria-label="Search Item">
         </div>
         @if($search && !$is_first)
-            <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm z-30" role="listbox"
-                 id="autocomplete-listbox-0">
+            <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm z-50 overflow-auto" role="listbox"
+                 id="autocomplete-listbox-0" style="max-height: 240px">
                 @if($items->count())
                     @foreach($items as $item)
                         <a class="search-result block px-4 py-3 bg-gray-100 transition-colors duration-200 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
-                           id="search-result-1" href="{{ route('item', ['item'=> $item->code]) }}">
+                           id="search-result-1" href="{{ route('item', ['code'=> $item->code]) }}">
                             <div class="text-sm font-medium">{{ $item->title }}</div>
                             <div class="mt-2">
                                 <div class="text-sm"><span>{{ $item->product->name }}</span>

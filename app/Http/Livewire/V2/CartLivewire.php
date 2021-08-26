@@ -24,15 +24,26 @@ class CartLivewire extends Component
 
     public function render()
     {
-        dd(Cart::count());
-        $product = Product::where('status', 'open')->where('code', $this->code)->firstorfail();
-        $category = Category::where('status', 'open')->findorfail($product->category_id);
-        $items = Item::where('status', 'open')->where('product_id', $product->id)
-            ->orderby('id', 'DESC')->paginate(12);
-        return view('livewire.v2.product', [
-            'category' => $category,
-            'product' => $product,
-            'items' => $items,
+        $carts = Cart::content();
+        $arr_cart_options = $carts->pluck('options')->toarray();
+        $list_item_id = [];
+        foreach ($arr_cart_options as $option) {
+            if (!isset($option['item_id'])) continue;
+            $list_item_id[] = $option['item_id'];
+        }
+//dd($carts);
+        $items = Item::wherein('id', $list_item_id)->where('status', 'open')->get();
+        return view('livewire.v2.cart', [
+            'carts' => $carts,
+            'items' => $items
         ])->layout('layouts.app-v2');
+    }
+
+    public function removeItem($row_id) {
+        Cart::remove($row_id);
+    }
+
+    public function removeAll() {
+        Cart::destroy();
     }
 }
