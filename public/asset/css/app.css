@@ -1618,6 +1618,11 @@ pre[class*=language-].line-numbers > code {
     margin-right: -.5rem !important
 }
 
+.mx-1 {
+    margin-left: .25rem !important;
+    margin-right: .25rem !important
+}
+
 .mb-0 {
     margin-bottom: 0 !important
 }
@@ -1757,6 +1762,11 @@ pre[class*=language-].line-numbers > code {
 .object-cover {
     -o-object-fit: cover !important;
     object-fit: cover !important
+}
+
+.object-contain {
+    -o-object-fit: contain !important;
+    object-fit: contain !important
 }
 
 .opacity-0 {

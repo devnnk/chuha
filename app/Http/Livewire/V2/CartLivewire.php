@@ -43,11 +43,13 @@ class CartLivewire extends Component
     public function removeItem($row_id)
     {
         Cart::remove($row_id);
+        $this->emit('updateCart');
     }
 
     public function removeAll()
     {
         Cart::destroy();
+        $this->emit('updateCart');
     }
 
     public function orderNow()

@@ -11,9 +11,13 @@ class ItemLivewire extends Component
 {
     use Modal;
 
+    public $search;
+
+    protected $queryString = ['search'];
+
     public function render()
     {
-        $items = Item::paginate(10);
+        $items = Item::where('title', 'like', '%'.$this->search.'%')->orderby('id', 'desc')->paginate(10);
         return view('livewire.admin.item.index', [
             'items' => $items
         ]);

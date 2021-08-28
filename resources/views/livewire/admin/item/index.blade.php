@@ -3,13 +3,18 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 
-                <div class="mt-6 text-gray-500">
+                <div class="mt-6 text-gray-500 flex justify-between">
                     <a href="{{route('admin.item.create')}}">
                         <button type="submit"
                                 class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                             Create item
                         </button>
                     </a>
+                    <div>
+                        <input wire:model="search"
+                               class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                               type="search" placeholder="search">
+                    </div>
                 </div>
             </div>
 
@@ -17,7 +22,7 @@
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg overflow-auto">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
                                     <tr>
@@ -76,16 +81,19 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-left">
                                                 @foreach($item->prices as $key => $price)
-                                                    <p>{{$key + 1}}. Price: <span class="text-lg">{!! $price->price !!}</span> Type: <span class="text-lg">{!! $price->type !!}</span> Amount: <span class="text-lg">{!! $price->amount !!}</span></p>
+                                                    <p>{{$key + 1}}. Price: <span
+                                                            class="text-lg">{!! $price->price !!}</span> Type: <span
+                                                            class="text-lg">{!! $price->type !!}</span> Amount: <span
+                                                            class="text-lg">{!! $price->amount !!}</span></p>
                                                 @endforeach
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center" style="max-width: 250px; word-break: break-all">
                                                 {!! $item->content !!}
                                             </td>
-                                            <td class="text-center">
+                                            <td class="text-center" style="max-width: 250px; word-break: break-all">
                                                 {!! $item->info !!}
                                             </td>
-                                            <td class="text-center">
+                                            <td class="text-center" style="max-width: 250px; word-break: break-all">
                                                 {!! $item->recommendation !!}
                                             </td>
                                             <td class="text-center flex">
@@ -110,9 +118,9 @@
                                     <!-- More people... -->
                                     </tbody>
                                 </table>
-                                <div class="p-6 ">
-                                    {{ $items->links() }}
-                                </div>
+                            </div>
+                            <div class="p-6 ">
+                                {{ $items->links() }}
                             </div>
                         </div>
                     </div>

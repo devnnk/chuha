@@ -5,7 +5,7 @@
         @foreach($items as $item)
             <a class="p-4 sm:p-6 md:p-3 md:pb-4 lg:p-6 bg-white shadow-sm hover:shadow-lg focus:shadow-lg transition group flex flex-col justify-start"
                big="true" href="{{ route('item', ['code'=> $item->code]) }}">
-                <img class="w-full mt-auto mb-6 md:mb-4 lg:mb-6"
+                <img class="h-full mt-auto mb-6 md:mb-4 lg:mb-6 object-contain" style="max-height: 240px"
                      src="{{ \App\Handle\ImageHandle::imageFirst($item->images) }}" alt="">
                 <div class="flex items-center mb-4 justify-start">
                     <div class="text-featured">

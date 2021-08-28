@@ -1,15 +1,57 @@
-<a href="{{ route('cart') }}" class="flex w-full ml-64">
-    <div
-        class="relative flex-1 flex justify-end max-w-xs w-full lg:absolute lg:right-0 lg:max-w-xxs xl:max-w-xs">
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart"
-             class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 576 512" width="20">
-            <path fill="#ff2d20"
-                  d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path>
-        </svg>
-        @if($count)
-            <small class="bg-black text-white p-1 border rounded-full absolute mb-4"
-                   style="top: -20px;right: -16px;">{{ $count }}</small>
-        @endif
+<div class="flex justify-end w-full">
+    <div class="mx-1">
+        <a class="flex-1 flex justify-end right-0" href="{{route('set-language')}}">
+            @if(\Illuminate\Support\Facades\Cookie::get('L_Language') === 'DE')
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                     y="0px" width="20" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                     xml:space="preserve"><path style="fill:#464655;" d="M473.655,88.276H38.345C17.167,88.276,0,105.443,0,126.621v73.471h512v-73.471
+	C512,105.443,494.833,88.276,473.655,88.276z"/>
+                    <path style="fill:#FFE15A;" d="M0,385.379c0,21.177,17.167,38.345,38.345,38.345h435.31c21.177,0,38.345-17.167,38.345-38.345
+	v-73.471H0V385.379z"/>
+                    <rect y="200.09" style="fill:#FF4B55;" width="512" height="111.81"/></svg>
+
+            @else
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="20"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path
+                        style="fill:#41479B;" d="M473.655,88.276H38.345C17.167,88.276,0,105.443,0,126.621V385.38
+	c0,21.177,17.167,38.345,38.345,38.345h435.31c21.177,0,38.345-17.167,38.345-38.345V126.621
+	C512,105.443,494.833,88.276,473.655,88.276z"/>
+                    <path style="fill:#F5F5F5;" d="M511.469,120.282c-3.022-18.159-18.797-32.007-37.814-32.007h-9.977l-163.54,107.147V88.276h-88.276
+	v107.147L48.322,88.276h-9.977c-19.017,0-34.792,13.847-37.814,32.007l139.778,91.58H0v88.276h140.309L0.531,391.717
+	c3.022,18.159,18.797,32.007,37.814,32.007h9.977l163.54-107.147v107.147h88.276V316.577l163.54,107.147h9.977
+	c19.017,0,34.792-13.847,37.814-32.007l-139.778-91.58H512v-88.276H371.691L511.469,120.282z"/>
+                    <g>
+                        <polygon style="fill:#FF4B55;" points="282.483,88.276 229.517,88.276 229.517,229.517 0,229.517 0,282.483 229.517,282.483
+		229.517,423.724 282.483,423.724 282.483,282.483 512,282.483 512,229.517 282.483,229.517 	"/>
+                        <path style="fill:#FF4B55;" d="M24.793,421.252l186.583-121.114h-32.428L9.224,410.31
+		C13.377,415.157,18.714,418.955,24.793,421.252z"/>
+                        <path style="fill:#FF4B55;"
+                              d="M346.388,300.138H313.96l180.716,117.305c5.057-3.321,9.277-7.807,12.287-13.075L346.388,300.138z"
+                        />
+                        <path style="fill:#FF4B55;"
+                              d="M4.049,109.475l157.73,102.387h32.428L15.475,95.842C10.676,99.414,6.749,104.084,4.049,109.475z"/>
+                        <path style="fill:#FF4B55;"
+                              d="M332.566,211.862l170.035-110.375c-4.199-4.831-9.578-8.607-15.699-10.86L300.138,211.862H332.566z"
+                        />
+                    </g></svg>
+            @endif
+        </a>
     </div>
-</a>
+    <div class="mx-1">
+        <a href="{{ route('cart') }}"
+           class="relative">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart"
+                 class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 576 512" width="20">
+                <path fill="#ff2d20"
+                      d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path>
+            </svg>
+            @if($count)
+                <small class="bg-black text-white p-1 border rounded-full absolute mb-4 text-xs"
+                       style="top: -21px;right: -36px;">{{ $count > 99 ? 99 . "+" : $count }}</small>
+            @endif
+        </a>
+    </div>
+</div>

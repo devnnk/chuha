@@ -12,7 +12,7 @@
                     @foreach($banners as $banner)
                         <div class="swiper-slide px-20 py-6 flex items-center justify-center">
                             <a class="flex justify-center py-4 w-full" href="{{$banner->url}}">
-                                <img class="w-full object-cover" style="height: 300px; max-height: 300px"
+                                <img class="h-full object-contain" style="height: 300px; max-height: 300px"
                                      src="{{$banner->image}}">
                             </a>
                         </div>
