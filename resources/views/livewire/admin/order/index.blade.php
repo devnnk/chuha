@@ -75,13 +75,13 @@
                                                 {{ $order->note }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-center">
-                                                <select name="status" id="status"
-                                                        wire:change="changeStatus('{{$order->id}}', $event.target.value)"
+                                                <select name="status" id="status" onchange="test(this)"
+                                                        wire:change="changeStatus('{{$order->id}}')"
                                                         style="margin: auto;padding: 0 28px;font-size: 12px;"
                                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block w-full">
                                                     @foreach(\App\Models\Order::LIST_STATUS as $status)
                                                         <option
-                                                            value="{{$status}}" {{$status === $order->status}}>{{$status}}</option>
+                                                            value="{{$status}}" {{$status === $order->status ? 'selected' : ''}}>{{$status}}</option>
                                                     @endforeach
                                                 </select>
                                             </td>
@@ -109,29 +109,8 @@
 <livewire:delete-modal/>
 @push('js')
     <script>
-        function copyToClipboard(id) {
-            let text = document.getElementById(id).textContent;
-            if (window.clipboardData && window.clipboardData.setData) {
-                return clipboardData.setData("Text", text);
-            } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-                var textarea = document.createElement("textarea");
-                textarea.textContent = text;
-                textarea.style.position = "fixed";
-                document.body.appendChild(textarea);
-                textarea.select();
-                try {
-                    if (document.getElementById('_copied')) {
-                        document.getElementById("_copied").outerHTML = "";
-                    }
-                    document.getElementById(id).insertAdjacentHTML('afterend', '<span id="_copied" class="transition-all"> Đã copy</span>');
-                    return document.execCommand("copy");
-                } catch (ex) {
-                    console.warn("Copy to clipboard failed.", ex);
-                    return false;
-                } finally {
-                    document.body.removeChild(textarea);
-                }
-            }
+        function test(e) {
+        @this.set('status', e.value);
         }
     </script>
 @endpush

@@ -32,13 +32,12 @@ class OrderLivewire extends Component
         ]);
     }
 
-    public function changeStatus($id, $value)
+    public function changeStatus($id)
     {
         $order = Order::find($id);
         if (!$order || !in_array($this->status, Order::LIST_STATUS)) return redirect(request()->header('Referer'));
-dd($value);
-//        $order->update([
-//            'status' => $this->status
-//        ]);
+        $order->update([
+            'status' => $this->status
+        ]);
     }
 }
