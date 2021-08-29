@@ -10,7 +10,7 @@ class CreateLanguagesTable extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->string('string_id', 199);
+            $table->string('code', 199)->index()->unique();
             $table->text('str_from');
             $table->text('str_to');
             $table->string('type')->default('de');

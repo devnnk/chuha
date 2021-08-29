@@ -17,7 +17,11 @@ class ItemLivewire extends Component
 
     public function render()
     {
-        $items = Item::where('title', 'like', '%'.$this->search.'%')->orderby('id', 'desc')->paginate(10);
+        $search = $this->search;
+        //where('title', 'like', '%'.$this->search.'%')
+        $items = Item::when($search, function ($q) use ($search) {
+            $q->where('title', 'like', '%' . $search . '%');
+        })->orderby('id', 'desc')->paginate(10);
         return view('livewire.admin.item.index', [
             'items' => $items
         ]);

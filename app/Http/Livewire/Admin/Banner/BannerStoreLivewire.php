@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
 
-class BannertStoreLivewire extends Component
+class BannerStoreLivewire extends Component
 {
     public $banners = '';
 

@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\V2\{HomeLivewire, ItemLivewire, ProductLivewire, CategoryLivewire, CartLivewire, SearchLivewire};
-use App\Http\Controllers\Admin\{CategoryController, ProductController, ItemController, BannerController};
+use App\Http\Controllers\Admin\{CategoryController, ProductController, ItemController, BannerController, LanguageController};
 use App\Http\Controllers\{TestController, SetLanguageController};
 
-Route::get('/', HomeLivewire::class);
+Route::get('/', HomeLivewire::class)->name('index');
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -14,6 +14,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware(['auth:sanctum', 'verified'])->resource('product', ProductController::class)->except('update');
     Route::middleware(['auth:sanctum', 'verified'])->resource('item', ItemController::class)->except('update');
     Route::middleware(['auth:sanctum', 'verified'])->resource('banner', BannerController::class)->except('update');
+    Route::middleware(['auth:sanctum', 'verified'])->resource('language', LanguageController::class)->except('update');
 });
 
 

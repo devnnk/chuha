@@ -34,7 +34,7 @@
                                                  class="w-10 h-10">
                                         </div>
                                         <div class="ml-4 leading-5">
-                                            <div>{{ $product->name }}</div>
+                                            <div>{{ \App\Handle\LanguageHandle::____($product->name) }}</div>
                                             @if($product->desc)
                                                 <span
                                                     class="text-gray-600 text-xs">{{ $product->desc }}</span>

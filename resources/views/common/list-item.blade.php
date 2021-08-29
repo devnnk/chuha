@@ -9,7 +9,7 @@
                      src="{{ \App\Handle\ImageHandle::imageFirst($item->images) }}" alt="">
                 <div class="flex items-center mb-4 justify-start">
                     <div class="text-featured">
-                        <h3 class="text-lg md:text-xl font-medium leading-none md:leading-none group-hover:text-red-600 group-focus:text-red-600 transition-colors">{{$item->title}}</h3>
+                        <h3 class="text-lg md:text-xl font-medium leading-none md:leading-none group-hover:text-red-600 group-focus:text-red-600 transition-colors">{{\App\Handle\LanguageHandle::____($item->title)}}</h3>
                     </div>
                 </div>
                 <div class="flex justify-between">

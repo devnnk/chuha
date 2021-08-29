@@ -9,7 +9,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
-class BannertLivewire extends Component
+class BannerLivewire extends Component
 {
     use Modal;
 

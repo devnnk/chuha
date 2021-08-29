@@ -11,12 +11,12 @@
                 </svg>
                 <input
                     wire:keydown.debounce.400ms="isFirst"
-                    wire:model.debounce.500ms="search" name="search"
+                    wire:model.debounce.500ms="search" name="search" required
                     value="{{ $search }}" onfocusout="hiddenListDataSearch()" maxlength="191"
                     class="flex-1 w-full pl-8 pr-4 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none"
                     placeholder="Search Item" aria-label="Search Item">
             </div>
-            <button class="px-3 h-8 border border-red-600 cursor-pointer">search</button>
+            <button class="px-3 h-8 border border-red-600 cursor-pointer">{{\App\Handle\LanguageHandle::____('Search')}}</button>
         </form>
 
         @if($search && !$is_first)

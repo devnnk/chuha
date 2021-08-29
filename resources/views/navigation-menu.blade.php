@@ -31,6 +31,10 @@
                                     :active="request()->routeIs(['admin.banner.index', 'admin.banner.create', 'admin.banner.edit'])">
                         {{ __('Banner') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.language.index') }}"
+                                    :active="request()->routeIs(['admin.language.index', 'admin.language.create', 'admin.language.edit'])">
+                        {{ __('Language') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
