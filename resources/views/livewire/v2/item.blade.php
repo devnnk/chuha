@@ -46,7 +46,7 @@
                 <div>
                     <div class="mt-4">
                         <label class="block font-medium text-sm text-gray-700" for="pick_number_set_price">
-                            Type
+                            {{\App\Handle\LanguageHandle::____('Type')}}
                         </label>
                         <select wire:model="price_id"
                                 class="p-2 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
@@ -57,7 +57,7 @@
                         </select>
                     </div>
                     <div class="mt-4">
-                        <label class="block font-medium text-sm text-gray-700">Quantity</label>
+                        <label class="block font-medium text-sm text-gray-700">{{\App\Handle\LanguageHandle::____('Quantity')}}</label>
                         <input wire:model="qty" type="number" min="1" value="{{$qty}}"
                                class="p-2 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                     </div>

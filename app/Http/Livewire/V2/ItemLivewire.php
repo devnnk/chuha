@@ -5,12 +5,8 @@ namespace App\Http\Livewire\V2;
 use App\Models\Item;
 use App\Models\Price;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Http\Request;
-use Illuminate\Session\SessionManager;
-use Illuminate\Contracts\Events\Dispatcher;
 
 class ItemLivewire extends Component
 {

@@ -66,7 +66,7 @@
                                                 <a href="{{ route('admin.language.edit', ['language' => $language->id]) }}"
                                                    class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$language->id}}', '{{route('admin.language.destroy', ['language' => $language->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$language->id}}', '{{route('admin.language.destroy', ['language' => $language->id])}}')">Delete</span>
                                             </td>
                                         </tr>
                                     @endforeach

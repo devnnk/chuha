@@ -1318,6 +1318,26 @@ pre[class*=language-].line-numbers > code {
     --tw-bg-opacity: 1 !important
 }
 
+.bg-indigo-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
+}
+
+.bg-indigo-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
+}
+
+.hover\:bg-indigo-600:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
+}
+
+.focus\:bg-indigo-600:focus {
+    --tw-bg-opacity: 1;
+    background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
+}
+
 .bg-dusk {
     background-color: rgba(187, 53, 139, var(--tw-bg-opacity)) !important
 }

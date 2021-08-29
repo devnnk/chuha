@@ -52,6 +52,11 @@ class CartLivewire extends Component
         $this->emit('updateCart');
     }
 
+    public function reloadItem()
+    {
+        $this->emit('updateCart');
+    }
+
     public function orderNow()
     {
         $this->messageOrderNow = 'Function not found!';

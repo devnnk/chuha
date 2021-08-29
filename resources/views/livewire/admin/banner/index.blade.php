@@ -69,9 +69,9 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a href="{{ route('admin.product.edit', ['product' => $banner->id]) }}"
-                                                   class="text-indigo-600 hover:text-indigo-900">Sửa</a>
+                                                   class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$banner->account_code .' - ' . $banner->symbol}}', '{{route('admin.product.destroy', ['product' => $banner->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$banner->account_code .' - ' . $banner->symbol}}', '{{route('admin.product.destroy', ['product' => $banner->id])}}')">Delete</span>
                                             </td>
                                         </tr>
                                     @endforeach

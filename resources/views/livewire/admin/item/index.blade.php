@@ -111,7 +111,7 @@
                                                 <a href="{{ route('admin.item.edit', ['item' => $item->id]) }}"
                                                    class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                 <span class="text-red-600 hover:text-red-900 cursor-pointer"
-                                                      wire:click.prevent="modalDelete('{{$item->id}}', '{{route('admin.item.destroy', ['item' => $item->id])}}')">Xóa</span>
+                                                      wire:click.prevent="modalDelete('{{$item->id}}', '{{route('admin.item.destroy', ['item' => $item->id])}}')">Delete</span>
                                             </td>
                                         </tr>
                                     @endforeach
