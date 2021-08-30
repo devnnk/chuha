@@ -2,13 +2,24 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-
                 <div class="mt-6 text-gray-500 flex justify-end">
                     <div>
                         <input wire:model="search"
                                class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
                                type="search" placeholder="search">
                     </div>
+                </div>
+
+                <div class="mt-6 text-gray-500 flex justify-end">
+                    <button wire:click="selectStatusFiller('')"
+                            class="inline-flex items-center px-1 py-1 ml-2 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition border-red-600">
+                        ALL
+                    </button>
+                    @foreach(\App\Models\Order::LIST_STATUS as $status)
+                        {{--                        //border-red-600--}}
+                        <button wire:click="selectStatusFiller('{{$status}}')"
+                                class="{{\App\Models\Order::STATUS_CLASS[$status]}} inline-flex items-center px-1 py-1 ml-2 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition">{{$status}}</button>
+                    @endforeach
                 </div>
             </div>
 
@@ -110,7 +121,7 @@
 @push('js')
     <script>
         function test(e) {
-        @this.set('status', e.value);
+        @this.set('update_status', e.value);
         }
     </script>
 @endpush
