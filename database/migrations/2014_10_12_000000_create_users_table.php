@@ -17,14 +17,15 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->string('role')->default('normal');
+            $table->string('role')->default('NORMAL');
             $table->timestamps();
         });
 
         \App\Models\User::create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
-            'password' => \Illuminate\Support\Facades\Hash::make("admin123")
+            'password' => \Illuminate\Support\Facades\Hash::make("admin123"),
+            'role' => 'ADMIN',
         ]);
     }
 

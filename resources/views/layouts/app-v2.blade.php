@@ -41,12 +41,7 @@
             <div class="px-8 pb-12 bg-gray-100 xl:px-20">
                 <div class="mt-6 sm:mt-12 md:flex">
                     <div class="mt-10 md:mt-0">
-                        <p class="text-xs text-gray-600 sm:text-sm">Laravel is a web application framework with
-                            expressive, elegant syntax. We believe development must be an enjoyable and creative
-                            experience to be truly fulfilling. Laravel attempts to take the pain out of development by
-                            easing common tasks used in most web projects.</p>
-                        <p class="mt-6 text-xs text-gray-600 text-opacity-75 sm:text-sm">
-                            Laravel is a Trademark of Taylor Otwell.<br>Copyright &copy; 2011-2021 Laravel LLC.
+                        <p class="mt-6 text-xs text-gray-600 text-opacity-75 sm:text-sm">Copyright &copy; 2011-2021.
                         </p>
                     </div>
                 </div>
