@@ -1,6 +1,6 @@
 <div class="relative max-w-screen-2xl mx-auto w-full py-4 bg-white transition duration-200 flex justify-end">
     <div>
-        <ul class="relative hidden lg:ml-6 lg:pt-3 lg:flex lg:items-end lg:space-x-6 xl:ml-14 xl:space-x-10">
+        <ul class="relative lg:ml-6 lg:pt-3 lg:flex lg:items-end lg:space-x-6 xl:ml-14 xl:space-x-10">
             <li>
                 <a href="{{ route('contact-us') }}">Contact us</a>
             </li>

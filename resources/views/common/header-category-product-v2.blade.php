@@ -2,7 +2,7 @@
     @if($category->products->count())
         <li x-data="{ expanded: false }" class="{{ $class_li ?? 'relative' }}"
             @keydown.window.escape="expanded = false">
-            <button class="{{ $class_button ?? 'flex items-center justify-center focus:outline-none' }}"
+            <button class="{{ $class_button ?? 'flex items-center justify-center focus:outline-none' }} whitespace-nowrap"
                     @click="expanded = !expanded">
                 {{$category->name}}<span class="ml-3 flex-shrink-0"><img
                         :class="{ 'rotate-180': expanded }"

@@ -4,7 +4,7 @@
 @endpush
 <div class="overflow-hidden">
     @if($banners->count())
-        <section class="md:py-20 xl:py-28 py-12">
+        <section class="py-6">
             <div class="swiper-container w-100 relative">
                 <!-- Additional required wrapper -->
 
