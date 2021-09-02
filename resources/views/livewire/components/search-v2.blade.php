@@ -1,6 +1,13 @@
-<div class="relative max-w-screen-2xl mx-auto w-full py-10 bg-white transition duration-200">
+<div class="relative max-w-screen-2xl mx-auto w-full py-4 bg-white transition duration-200 flex justify-end">
+    <div>
+        <ul class="relative hidden lg:ml-6 lg:pt-3 lg:flex lg:items-end lg:space-x-6 xl:ml-14 xl:space-x-10">
+            <li>
+                <a href="{{ route('contact-us') }}">Contact us</a>
+            </li>
+        </ul>
+    </div>
     <div
-        class="ml-4 relative flex-1 flex justify-end max-w-xs w-full lg:absolute lg:right-0 lg:max-w-xxs lg:ml-10 xl:max-w-xs">
+        class="ml-4 relative flex-1 flex justify-end max-w-xs w-full lg:right-0 lg:max-w-xxs lg:ml-10 xl:max-w-xs">
         <form class="flex" method="GET" action="{{route('search')}}">
             <div
                 class="relative border-b border-gray-600 border-opacity-50 overflow-hidden transition-all duration-500 lg:w-full hover:w-full focus-within:border-gray-600 w-full">
@@ -20,8 +27,8 @@
         </form>
 
         @if($search && !$is_first)
-            <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm z-50 overflow-auto" role="listbox"
-                 id="autocomplete-listbox-0" style="max-height: 240px">
+            <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm overflow-auto" role="listbox"
+                 id="autocomplete-listbox-0" style="max-height: 240px; z-index: 100">
                 @if($items->count())
                     @foreach($items as $item)
                         <a class="search-result block px-4 py-3 bg-gray-100 transition-colors duration-200 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"

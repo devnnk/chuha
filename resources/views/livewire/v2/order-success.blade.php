@@ -1,12 +1,6 @@
 <div>
     <div class="md:py-40 lg:py-64 xl:py-72 relative py-16 overflow-hidden">
         <div class="md:space-y-0 md:flex md:items-center relative max-w-screen-xl px-8 mx-auto space-y-16">
-            <div style="z-index: -9999; width: 120%"
-                 class="md:transform md:-translate-x-1/2 md:absolute md:inset-y-0 md:left-0 md:h-full md:flex md:items-center hidden">
-                <video class="w-full" poster="/img/blocks/blocks_3.jpg" playsinline="" autoplay="" muted="" loop="">
-                    <source src="/img/blocks/blocks_3.mp4" type="video/mp4">
-                </video>
-            </div>
             <div class="md:max-w-auto md:w-1/2 max-w-lg">
                 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"

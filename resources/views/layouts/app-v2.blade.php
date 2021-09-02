@@ -35,20 +35,7 @@
     {{ $slot }}
 </main>
 
-<footer style="background: linear-gradient(0deg,#fff 90%,hsla(0,0%,100%,0))" class="relative z-30">
-    <div class="relative z-20 overflow-x-hidden">
-        <div class="max-w-screen-2xl mx-auto px-4 lg:px-12 xl:px-16">
-            <div class="px-8 pb-12 bg-gray-100 xl:px-20">
-                <div class="mt-6 sm:mt-12 md:flex">
-                    <div class="mt-10 md:mt-0">
-                        <p class="mt-6 text-xs text-gray-600 text-opacity-75 sm:text-sm">Copyright &copy; 2011-2021.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<livewire:footer-v2/>
 
 @livewireScripts
 

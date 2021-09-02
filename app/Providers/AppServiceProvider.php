@@ -9,8 +9,9 @@ use App\Http\Livewire\Admin\Item\{ItemLivewire, ItemStoreLivewire};
 use App\Http\Livewire\Admin\Product\{ProductLivewire, ProductStoreLivewire};
 use App\Http\Livewire\Admin\Banner\{BannerLivewire, BannerStoreLivewire};
 use App\Http\Livewire\Admin\Language\{LanguageLivewire, LanguageStoreLivewire};
+use App\Http\Livewire\Admin\Other\{OtherLivewire, OtherStoreLivewire};
 use App\Http\Livewire\Admin\Order\OrderLivewire;
-use App\Http\Livewire\Components\{HeaderV2, DeleteModal, SearchV2, CartV2};
+use App\Http\Livewire\Components\{HeaderV2, DeleteModal, SearchV2, CartV2, FooterV2, LogoV2};
 use App\Http\Livewire\V2\Listitem\BannerLivewire as BannerSlider;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,10 +40,14 @@ class AppServiceProvider extends ServiceProvider
             'admin-banner-store' => BannerStoreLivewire::class,
             'admin-language' => LanguageLivewire::class,
             'admin-language-store' => LanguageStoreLivewire::class,
+            'admin-other' => OtherLivewire::class,
+            'admin-other-store' => OtherStoreLivewire::class,
             'admin-order' => OrderLivewire::class,
 
             'delete-modal' => DeleteModal::class,
             'header-v2' => HeaderV2::class,
+            'footer-v2' => FooterV2::class,
+            'logo-v2' => LogoV2::class,
             'search-v2' => SearchV2::class,
             'cart-v2' => CartV2::class,
 
