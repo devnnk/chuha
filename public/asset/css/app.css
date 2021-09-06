@@ -2128,6 +2128,11 @@ pre[class*=language-].line-numbers > code {
     color: rgba(43, 46, 56, var(--tw-text-opacity)) !important
 }
 
+.hover\:text-red-500:hover {
+    --tw-bg-opacity: 1 !important;
+    color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
+
 .text-opacity-75 {
     --tw-text-opacity: 0.75 !important
 }

@@ -13,7 +13,7 @@ class ItemLivewire extends Component
     use WithPagination;
 
     public $item;
-    public $price_id;
+    public $price_id = '';
     public $prices;
     public $qty = 1;
     public $messsage = '';
@@ -23,7 +23,9 @@ class ItemLivewire extends Component
         if (!isset($code)) abort(404);
         $this->item = Item::where('status', 'open')->where('code', $code)->firstorfail();
         $this->prices = $this->item->prices()->orderby('price', 'ASC')->get();
-        $this->price_id = $this->prices->first()->id;
+        if ($this->prices->first()) {
+            $this->price_id = $this->prices->first()->id;
+        }
     }
 
     public function render()

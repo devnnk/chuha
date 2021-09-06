@@ -2,7 +2,7 @@
     @if($category->products->count())
         <li x-data="{ expanded: false }" class="{{ $class_li ?? 'relative' }}"
             @keydown.window.escape="expanded = false">
-            <button class="{{ $class_button ?? 'flex items-center justify-center focus:outline-none' }} whitespace-nowrap"
+            <button class="{{ $class_button ?? 'flex items-center justify-center focus:outline-none' }} whitespace-nowrap hover:text-red-500"
                     @click="expanded = !expanded">
                 {{$category->name}}<span class="ml-3 flex-shrink-0"><img
                         :class="{ 'rotate-180': expanded }"
@@ -21,19 +21,19 @@
             >
                 @if(!isset($is_mobile))
                     <div
-                        class="mt-4 ml-8 w-224 -translate-x-1/2 p-8 bg-white shadow-lg transform transition-transform origin-top"
+                        class="mt-2 ml-4 w-64 -translate-x-1/2 p-4 bg-white shadow-lg transform transition-transform origin-top"
                         @click.away="expanded = false">
                         @endif
                         <ul class="grid gap-3 relative">
                             @foreach($category->products as $product)
                                 <li>
                                     <a href="{{ route('product', ['code' => $product->code]) }}"
-                                       class="flex items-center p-4 shadow-lg">
+                                       class="flex items-center p-1 shadow-lg">
 {{--                                        <div class="w-14 h-14 flex items-center justify-center">--}}
 {{--                                            <img src="{{ $product->banner }}" alt="Icon" style="object-fit: contain"--}}
 {{--                                                 class="w-10 h-10">--}}
 {{--                                        </div>--}}
-                                        <div class="ml-4 leading-5">
+                                        <div class="ml-4 leading-5 hover:text-red-500">
                                             <div>{{ \App\Handle\LanguageHandle::____($product->name) }}</div>
                                             @if($product->desc)
                                                 <span

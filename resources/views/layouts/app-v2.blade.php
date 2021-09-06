@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Chu Ha</title>
+    @include('common.tag-title', ['title' =>     \App\Models\Other::wheretype('title')->first()])
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 

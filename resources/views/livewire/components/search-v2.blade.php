@@ -2,7 +2,7 @@
     <div>
         <ul class="relative lg:ml-6 lg:pt-3 lg:flex lg:items-end lg:space-x-6 xl:ml-14 xl:space-x-10">
             <li>
-                <a href="{{ route('contact-us') }}">Contact us</a>
+                <a href="{{ route('contact-us') }}" class="hover:text-red-500">Contact us</a>
             </li>
         </ul>
     </div>

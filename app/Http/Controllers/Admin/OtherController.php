@@ -24,7 +24,7 @@ class OtherController extends Controller
     public function store(Request $request)
     {
         $data = $request->only('content', 'type');
-        if ($data['type'] === 'logo') {
+        if (in_array($data['type'], ['logo', 'title'])) {
             $data['content'] = strip_tags($data['content']);
         }
 

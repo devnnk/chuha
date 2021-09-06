@@ -12,7 +12,7 @@ use App\Http\Livewire\Admin\Language\{LanguageLivewire, LanguageStoreLivewire};
 use App\Http\Livewire\Admin\Other\{OtherLivewire, OtherStoreLivewire};
 use App\Http\Livewire\Admin\Order\OrderLivewire;
 use App\Http\Livewire\Components\{HeaderV2, DeleteModal, SearchV2, CartV2, FooterV2, LogoV2};
-use App\Http\Livewire\V2\Listitem\BannerLivewire as BannerSlider;
+use App\Http\Livewire\V2\Listitem\{BannerLivewire as BannerSlider, ListProductLivewire};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -52,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
             'cart-v2' => CartV2::class,
 
             'listitem-banner-v2' => BannerSlider::class,
+            'listproduct-v2' => ListProductLivewire::class,
         ];
 
         foreach ($components as $name => $class) {

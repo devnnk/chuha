@@ -42,33 +42,38 @@
             </div>
             <div class="md:w-1/2 md:pl-8 lg:pl-24">
                 <h1 class="sm:text-4xl lg:text-5xl lg:leading-tight xl:text-5xl text-3xl font-medium tracking-tight">{{\App\Handle\LanguageHandle::____($item->title)}}</h1>
-                <span class="bold">SKU: {{$item->product->sku . $item->sku}}</span>
-                <div>
-                    <div class="mt-4">
-                        <label class="block font-medium text-sm text-gray-700" for="pick_number_set_price">
-                            {{\App\Handle\LanguageHandle::____('Type')}}
-                        </label>
-                        <select wire:model="price_id"
-                                class="p-2 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
-                            @foreach($prices as $price)
-                                <option
-                                    value="{{ $price->id }}">{{ $price->type . " - " . $price->price . "$"}}</option>
-                            @endforeach
-                        </select>
+                @if($prices->count())
+                    <div>
+                        <div class="mt-4">
+                            <label class="block font-medium text-sm text-gray-700" for="pick_number_set_price">
+                                {{\App\Handle\LanguageHandle::____('Type')}}
+                            </label>
+                            <select wire:model="price_id"
+                                    class="p-2 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                                @foreach($prices as $price)
+                                    <option
+                                        value="{{ $price->id }}">{{ $price->type . " - " . $price->price . "$"}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mt-4">
+                            <label
+                                class="block font-medium text-sm text-gray-700">{{\App\Handle\LanguageHandle::____('Quantity')}}</label>
+                            <input wire:model="qty" type="number" min="1" value="{{$qty}}"
+                                   class="p-2 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                        </div>
                     </div>
-                    <div class="mt-4">
-                        <label class="block font-medium text-sm text-gray-700">{{\App\Handle\LanguageHandle::____('Quantity')}}</label>
-                        <input wire:model="qty" type="number" min="1" value="{{$qty}}"
-                               class="p-2 border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                    <p class="sm:mt-5 md:max-w-2xl md:mt-8 md:text-lg max-w-xl mt-3 text-gray-600">{!! \App\Handle\LanguageHandle::____($item->content) !!}</p>
+                    <div wire:click.debounce.500ms="addToCart({{json_encode(['id' => $item->id])}})"
+                         class="group relative h-12 inline-flex w-64 border border-red-600 sm:w-56 focus:outline-none sm:mt-8 md:mt-10 mt-6 cursor-pointer"
+                    ><span
+                            class="absolute inset-0 inline-flex items-center justify-center self-stretch px-6 text-white text-center font-medium bg-red-600 ring-1 ring-red-600 ring-offset-1 ring-offset-red-600 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">Add to cart</span>
                     </div>
-                </div>
-                <p class="sm:mt-5 md:max-w-2xl md:mt-8 md:text-lg max-w-xl mt-3 text-gray-600">{!! \App\Handle\LanguageHandle::____($item->content) !!}</p>
-                <div wire:click.debounce.500ms="addToCart({{json_encode(['id' => $item->id])}})"
-                     class="group relative h-12 inline-flex w-64 border border-red-600 sm:w-56 focus:outline-none sm:mt-8 md:mt-10 mt-6 cursor-pointer"
-                ><span
-                        class="absolute inset-0 inline-flex items-center justify-center self-stretch px-6 text-white text-center font-medium bg-red-600 ring-1 ring-red-600 ring-offset-1 ring-offset-red-600 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">Add to cart</span>
-                </div>
-                {!! $messsage !!}
+                    {!! $messsage !!}
+                @else
+                    <h2 class="text-2xl">Preview item</h2>
+                    <p class="sm:mt-5 md:max-w-2xl md:mt-8 md:text-lg max-w-xl mt-3 text-gray-600">{!! \App\Handle\LanguageHandle::____($item->content) !!}</p>
+                @endif
             </div>
         </div>
     </div>
